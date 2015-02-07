@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Week1-HTML5 Audio and Video</title>
+
+    
+</head>
+
+<body>
+
+<fieldset>
+    <h3>About the Experiment</h3>
+    <p>I have demonstrated some of the new media elements in HTML5 such as audio, video and youtube video embedding in a web page.</p>
+</fieldset>
+    <fieldset>
+        <h4 style="color:darkblue">HTML5 Audio and Video</h4>
+        <p>
+            Audio and Video are notable new features of HTML5.
+            Previously, multimedia files could only be played using a plug-in like flash.
+            I have included a sample audio clip below: <span style="font-size:smaller">(Courtesy: US Fish and Wildlife Service)</span>
+        </p>
+        <span>
+            <audio controls>
+                <source src="audio/test_audio_clip.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </span>
+        <p>
+            Code Snippet:
+            <pre style="background-color:lightgoldenrodyellow">
+  
+            &lt;audio controls&gt;
+            &lt;source src="audio/test_audio_clip.mp3" type="audio/mpeg"&gt;
+            Your browser does not support the audio element.
+            &lt;/audio&gt;
+        </pre>
+        </p>
+        <p> Similarly it is very simple to embed a video using HTML5</p>
+        <span>
+            <video width="320" height="240" controls>
+                <source src="video/test_movie.mp4" type="video/mp4">
+                <source src="video/test_movie.ogv" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </span>
+        <p>
+            Code Snippet:
+            <pre style="background-color:lightgoldenrodyellow">
+  
+            &lt;video width="300" height="240"&gt;
+            &lt;source src="video/test_movie.mp4" type="video/mp4"&gt;
+            Your browser does not support the video element.
+            &lt;/video&gt;
+        </pre>
+        </p>
+        
+        <h4 style="color:darkblue"> Embedding a Youtube Video</h4>
+        <p>
+            We could also embed a youtube video in a web page using iframe,object or embed.
+            I have embedded a youtube video of CS5610:Intro to HTML by Prof Jose Annunziato below using iframe:
+        </p>
+        <span>
+            <iframe width="420" height="350"
+                    src="//www.youtube.com/embed/rvFdP8taVQo"></iframe>
+        </span>
+        <p>
+            Code Snippet:
+            <pre style="background-color:lightgoldenrodyellow">
+  
+            &lt;iframe width="420" height="350"
+            src="//www.youtube.com/embed/rvFdP8taVQo"&gt;
+            &lt;/iframe&gt;
+        </pre>
+        </p>
+    </fieldset>
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week1/experiment1.htm" target="_blank">View Source Code</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+    </fieldset>
+</body>
+</html>

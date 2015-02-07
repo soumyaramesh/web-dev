@@ -1,0 +1,48 @@
+﻿#sourceCode
+{
+    min-width:100%;
+    min-height:100px;
+    margin-top : 80px;
+}
+
+#codeSnippet
+{
+    margin-top : 80px;
+}
+
+#textArea
+{
+    min-width:100%;
+    min-height:230px;
+    background-color:lightgoldenrodyellow;
+}
+
+#textAreax
+{
+    min-width:100%;
+    min-height:130px;
+    background-color:lightgoldenrodyellow;
+}
+
+#textAreay
+{
+    min-width:100%;
+    min-height:70px;
+    background-color:lightgoldenrodyellow;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+[class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: lightpink;
+  background-color: lightsteelblue;
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+}

@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Week1-HTML5 New Input Types</title>
+
+    
+</head>
+
+<body>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>I have demonstrated a few new HTML5 form input types such as color,url,number,date and range</p>
+    </fieldset>
+
+    <fieldset>
+        <h3 style="color:darkblue">The &lt;color&gt; input type</h3>
+        <p> The color input type allows for input fields to pick a color. A color pop-up is shown depending on browser support. Note: Internet Explorer does not support color</p>
+        <form>
+            Pick a color of your choice:
+            <input type="color" name="mycolor">
+        </form>
+       
+            Code Snippet:
+            <pre style="background-color:lightgoldenrodyellow">
+            &lt;form&gt;
+            &lt;input type="color" name="mycolor"&gt;
+            &lt;/form&gt;
+            </pre>
+        </p>
+
+        <h3 style="color:darkblue">The &lt;url&gt; input type</h3>
+        <p>The url input type is used for an input that is supposed to contain a url. The url field is validated before submit depending on browser support.</p>
+        <form>
+            Add a link to your blog:
+            <input type="url" name="myurl">
+            <input type="submit">
+        </form>
+
+
+        <p>
+            Code Snippet:
+            <pre style="background-color:lightgoldenrodyellow">
+            &lt;form&gt;
+            &lt;input type="url" name="myurl"&gt;
+            &lt;/form&gt;           
+        </pre>
+        </p>
+
+        <h3 style="color:darkblue">The &lt;number&gt; input type</h3>
+        <p>The number input type should be used when the input it supposed to contain a numeric value. We can add restrictions like max, min, maxlength,required,size etc</p>
+        <form>
+            Enter your age (between 18 and 60): 
+            <input type="number" name="quantity" min="18" max="60" required value="18">
+            <input type="submit">
+        </form>
+        <p>
+            Code Snippet:
+            <pre style="background-color:lightgoldenrodyellow">
+            &lt;form&gt;
+            &lt;input type="number" name="mynum" min="18" max="60" value="18"&gt;
+            &lt;/form&gt;           
+        </pre>
+        </p>
+        <h3 style="color:darkblue">The &lt;date&gt; element</h3>
+        <p>The date input type is used when the input firld is required to contain a date. Restrictions such as min and max can be specified.</p>
+        <form>
+            Enter you date of joining:
+            <input type="date" name="joinday" max="2015-01-31">
+            <input type="submit">
+        </form>
+        <p>
+            Code Snippet:
+            <pre style="background-color:lightgoldenrodyellow">
+            &lt;form&gt;
+            &lt;input type="date" name="joinday" max="2015-01-31"&gt;
+            &lt;/form&gt;           
+        </pre>
+        </p>
+
+        <h3 style="color:darkblue">The &lt;range&gt; input type</h3>
+        <p>The range input type is used when the input value should fall within a range.</p>
+        <form>
+            <input type="range" name="points" min="0" max="100">
+        </form>
+
+        <p>
+            Code Snippet:
+            <pre style="background-color:lightgoldenrodyellow">
+  
+            &lt;form&gt;
+            &lt;input type="range" min = "0" max="100"&gt;
+            &lt;form&gt;
+        </pre>
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week1/experiment3.htm" target="_blank">View Source Code</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="http://codecademy.com/" target="_blank">codecademy</a>
+            <br />
+            <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+        </nav>
+    </fieldset>
+</body>
+</html>

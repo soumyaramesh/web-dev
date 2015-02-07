@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="initial-scale=1, minimum-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Week2-Bootstrap Button Examples</title>
+
+
+</head>
+
+<body>
+    <h3> About the Experiment</h3>
+    <p>
+        I have demonstrated a few Bootstrap buttons and their features below:
+    </p>
+    
+    <div class="wrapper">
+        <div class="clearfix">
+            <div class="column-left">
+                <div class="form-horizontal generator">
+                    <div class="form-group">
+                        <label class="control-label col-xs-2">Buttons Sizing</label>
+                        <br/><br /><br />
+
+                        <div class="bs-example" data-example-id="button-group-sizing">
+                            <div class="btn-group btn-group-lg col-xs-10" role="group" aria-label="Large button group">
+                                <button type="button" class="btn btn-default">Left</button>
+                                <button type="button" class="btn btn-default">Middle</button>
+                                <button type="button" class="btn btn-default">Right</button>
+                            </div>
+                            <br>
+                            <div class="btn-group col-xs-10" role="group" aria-label="Default button group">
+                                <button type="button" class="btn btn-default">Left</button>
+                                <button type="button" class="btn btn-default">Middle</button>
+                                <button type="button" class="btn btn-default">Right</button>
+                            </div>
+                            <br>
+                            <div class="btn-group btn-group-sm col-xs-10" role="group" aria-label="Small button group">
+                                <button type="button" class="btn btn-default">Left</button>
+                                <button type="button" class="btn btn-default">Middle</button>
+                                <button type="button" class="btn btn-default">Right</button>
+                            </div>
+                            <br>
+                            <div class="btn-group btn-group-xs col-xs-10" role="group" aria-label="Extra-small button group">
+                                <button type="button" class="btn btn-default">Left</button>
+                                <button type="button" class="btn btn-default">Middle</button>
+                                <button type="button" class="btn btn-default">Right</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Buttons Label</label>
+                            <div class="col-xs-10">
+                                <input type="text" class="form-control button-text" value="Bootstrap Button">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Button Type</label>
+                            <div class="col-xs-10">
+                                <div class="btn-group element-type" data-toggle="buttons">
+                                    <label class="btn btn-default active">
+                                        <input type="radio" name="type" value="a"> Anchor
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="type" value="button"> Button
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="type" value="input"> Input
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-2">Button Width</label>
+                            <div class="col-xs-10">
+                                <div class="btn-group button-width" data-toggle="buttons">
+                                    <label class="btn btn-default active">
+                                        <input type="radio" name="width" value=""> Auto
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="width" value="btn-block"> Full Width
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="iconOption">
+                            <label class="control-label col-xs-2">Icon</label>
+                            <div class="col-xs-10">
+                                <div class="btn-group include-icon" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                        <input type="radio" name="includeicon" value="1"> <span class="glyphicon glyphicon-ok"></span>
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="includeicon" value="0"> <span class="glyphicon glyphicon-remove"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group toggle">
+                            <label class="control-label col-xs-2">Icon Position</label>
+                            <div class="col-xs-10">
+                                <div class="btn-group glyphicon-position" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                        <input type="radio" name="iconposition" value="left"> <span class="glyphicon glyphicon-arrow-left"></span> Left
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="iconposition" value="right"> Right <span class="glyphicon glyphicon-arrow-right"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                            <label class="control-label col-xs-2">Toolbar of button groups</label>
+                            <div class="btn-group" role="group" aria-label="First group">
+                                <button type="button" class="btn btn-default">1</button>
+                                <button type="button" class="btn btn-default">2</button>
+                                <button type="button" class="btn btn-default">3</button>
+                                <button type="button" class="btn btn-default">4</button>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Second group">
+                                <button type="button" class="btn btn-default">5</button>
+                                <button type="button" class="btn btn-default">6</button>
+                                <button type="button" class="btn btn-default">7</button>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="bootstrap-inbuilt-style">
+                            <div class="form-group">
+                                <label class="control-label col-xs-2">Button Type</label>
+                                <div class="col-xs-10">
+                                    <div class="btn-group button-color" data-toggle="buttons">
+                                        <label class="btn btn-default">
+                                            <input type="radio" name="color" value="btn btn-default"> Default
+                                        </label>
+                                        <label class="btn btn-primary">
+                                            <input type="radio" name="color" value="btn btn-primary"> Primary
+                                        </label>
+                                        <label class="btn btn-info">
+                                            <input type="radio" name="color" value="btn btn-info"> Info
+                                        </label>
+                                        <label class="btn btn-success active">
+                                            <input type="radio" name="color" value="btn btn-success"> Success
+                                        </label>
+                                        <label class="btn btn-warning">
+                                            <input type="radio" name="color" value="btn btn-warning"> Warning
+                                        </label>
+                                        <label class="btn btn-danger">
+                                            <input type="radio" name="color" value="btn btn-danger"> Danger
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="column-right">
+
+
+                
+                
+                  
+                <div id="codeSnippet">
+                    <h4>Code Snippet:</h4>
+                    <br /><br />
+                    <textarea id="textArea">
+                        &lt;div class=form-group&gt;
+                        &lt;label class="control-label col-xs-2"&gt;Button Width &lt;/label&gt;
+                        &lt;div class="btn-group button-width" data-toggle="buttons"&gt;
+                        &lt;label class="btn btn-default active"&gt;
+                        &lt;input type="radio" name=width&gt; Auto
+                        &lt;/label&gt;
+                        &lt;/div&gt;
+                        &lt;/div&gt;
+                    </textarea>
+                </div>
+                </br>
+                <br/>
+                    <h3>Source Code</h3>
+                    <a href="../../fileview/Default.aspx?~/experiments/week2/experiment4.htm" target="_blank">View Source Code</a>
+                <br/>
+                <fieldset>
+                    <h3>References</h3>
+                    <nav>
+                        <a href="http://codecademy.com/" target="_blank">codecademy</a>
+                        <br />
+                        <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+                        <br />
+                        <a href="http://www.tutorialrepublic.com/" target="_blank">tutorial republic</a>
+                    </nav>
+                </fieldset>
+</body>
+</html>

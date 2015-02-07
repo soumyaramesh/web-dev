@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Week1-HTML5 New Form Elements</title>
+
+    
+</head>
+
+<body>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>I have demonstrated a few new HTML5 form elements such as datalist, keygen and output.</p>
+    </fieldset>
+
+    <fieldset>
+        <h3 style="color:darkblue">The &lt;datalist&gt; form element</h3>
+        <p> The datalist element is used to provide a drop-down list of pre-defined list of options for the user to input.</p>
+        <p> Pick a color or type your favourite color: </p>
+        <form>
+            <input list="colors" name="colors">
+            <datalist id="colors">
+                <option value="red">
+                <option value="blue">
+                <option value="yellow">
+                <option value="green">
+                <option value="black">
+            </datalist>
+            <input type="submit">
+        </form>
+       
+        <p>
+            Code Snippet:
+            <pre style="background-color:lightgoldenrodyellow">
+            &lt;form&gt;
+            &lt;input list="colors" name="colors"&gt;
+            &lt;datalist id="colors"&gt;
+            &lt;option value="red"&gt;
+            &lt;option value="green"&gt;
+            &lt;/datalist&gt;
+            &lt;/form&gt;
+            &lt;/form&gt;
+            </pre>
+        </p>
+
+        <h3 style="color:darkblue">The &lt;keygen&gt; tag</h3>
+        <p>The keygen tag is used to generate generates a public/private key pair and then creates a certificate request. This certificate request will be sent to a Certificate Authority (CA). The CA creates a certificate and sends it back to the browser, therefore using it for client authentication.</p>
+        <form>
+        Enter your Username:
+        <br>
+        <input type="text" name="username">
+        <br><br />
+        Encryption:
+        <br>
+        <keygen name="keygen">
+        <br><br/>
+        <input type="submit">
+        </form>
+
+
+        <p>
+            Code Snippet:
+            <pre style="background-color:lightgoldenrodyellow">
+            &lt;form&gt;
+            Enter your username
+            &lt;input type="text" name="username"&gt;
+            &lt;Encryption&gt;
+            &lt;keygen name="keygen"&gt;
+            &lt;/form&gt;
+            </pre>
+        </p>
+
+        <h3 style="color:darkblue">The &lt;output&gt; element</h3>
+        <p>The output element is used to show the output of a calculation.</p>
+        <form oninput="c.value = parseInt(a.value) + parseInt(b.value)">
+            <input name="a" type="number"> +
+            <input name="b" type="number"> =
+            <output name="c"></output>
+        </form>
+        <p>
+            Code Snippet:
+            <pre style="background-color:lightgoldenrodyellow">
+            &lt;form oninput="c.value = parseInt(a.value) + parseInt(b.value)"&gt;
+            &lt;input name="a" type="number"&gt; +
+            &lt;input name="b" type="number"&gt; =
+            &lt;output name="c"&gt;&lt;/output&gt;
+            &lt;/form&gt;           
+        </pre>
+        </p>
+        
+    </fieldset>
+
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week1/experiment4.htm" target="_blank">View Source Code</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="http://codecademy.com/" target="_blank">codecademy</a>
+            <br />
+            <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+        </nav>
+    </fieldset>
+</body>
+</html>
