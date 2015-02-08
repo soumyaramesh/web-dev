@@ -121,7 +121,8 @@
 <hr />
 
 <p style="color:indianred">
-Hi I'm Soumya Ramesh. Welcome to my home page. I'm a gradute student in Computer Science at Northeastern University.
+Hi I'm Soumya Ramesh. Welcome to my home page. I'm a gradute student in Computer Science at Northeastern University. Here's the link to my Git page containing my experiments and projects for this course. <br />
+    <a href="https://github.com/soumyaramesh/web-dev">Github</a>
 </p>
 
     

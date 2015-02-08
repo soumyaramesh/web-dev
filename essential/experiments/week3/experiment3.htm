@@ -4,93 +4,36 @@
     <meta charset="utf-8" />
 
     <meta name="viewport"
-        content="initial-scale=1, minimum-scale=1">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Week2-Bootstrap Grid Examples</title>
+          content="initial-scale=1, minimum-scale=1">
+    <script type="text/javascript" src="javascript/vowel.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <title>Week3-Index Of First Vowel</title>
 
     
 </head>
 
-<body>
-    <h3> About the Experiment</h3>
-    <p>
-        Bootstrap allows for a responsive, fluid grid system that scales up to 12 columns corresponding to the increase or decrease of the viewport size.
+<body style="background-color:lightcyan">
+    <h1 style="color:rosybrown">Index of First Vowel in the string</h1>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>This experiment uses a form to obtain a user input string and on submit, executes a javascript script to produce the index of the first vowel in the string and the vowel.</p>
+        <br />
+        <form>
+            <label>
+                <h2>Enter your string</h2>
+            </label>
+            <br />
+            <input type="text" id="choice1" />
+            <input type="button" onclick="isvowel(document.getElementById('choice1'))" value="Vowel!" />
+        </form>
+        <br />
+        <div class="result" id="result" style="background-color:lightgreen"></div>
 
-        The Grid systems is used to create page layouts whose content is housed in the form of rows and columns.
+        <br />
 
-        Rows must be placed within a .container (fixed-width) or .container-fluid (full-width) and content should be placed within columns.
-        Predefined grid classes like .row and .col-xs-4 are available for making grid layouts.
-        Grid columns are created by specifying the number of 12 available columns you wish to span. For example, three equal columns would use three .col-xs-4.
-        Look at the examples below:
-        <h4>Three equal columns</h4>
-        <div class="row">
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-        </div>
-        <h4>Two unequal columns</h4>
-        <div class="row">
-            <div class="col-md-8">.col-md-8</div>
-            <div class="col-md-4">.col-md-4</div>
-        </div>
-        <h4> Twelve equal columns</h4>
-        <div class="row">
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-            <div class="col-md-1">.col-md-1</div>
-        </div>
-        <h4> What happens when there are Thirteen equal columns?</h4>
-    <p>Each group of extra columns will wrap onto a new line.</p>
-    <div class="row">
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-    </div>
-    <p>
-        <h4>Code Snippet:</h4>
-        <br /><br />
-        <textarea id="textAreax">
-        &lt;div class=row&gt;
-            &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
-            &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
-            &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
-        &lt;/div&gt;
-        </textarea>
-        </p>
-            <h4>Responsive column reset</h4>
-    <p>Resize the window to observe responsive column reset. This can be achieved by using clearfix for the required viewport </p>
-    <div class="row">
-        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
-        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
-        <div class="clearfix visible-xs-block"></div>
 
-        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
-        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
-    </div>
 
+    </fieldset>
     <p>
         <h4>Code Snippet:</h4>
         <br /><br />
@@ -105,7 +48,7 @@
 
     <fieldset>
         <h3>Source Code</h3>
-        <a href="../../fileview/Default.aspx?~/experiments/week2/experiment3.htm" target="_blank">View Source Code</a>
+        <a href="../../fileview/Default.aspx?~/experiments/week3/experiment3.htm" target="_blank">View Source Code</a>
     </fieldset>
     <fieldset>
         <h3>References</h3>
