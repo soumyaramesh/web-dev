@@ -1,0 +1,23 @@
+﻿.one{ padding:30px;
+       width:200px;
+       position:absolute;
+       left:300px;
+       top:200px;
+       z-index:6;
+       background-color:lightcoral;
+       -moz-border-radius:30px;
+      }
+.two{ padding:30px;width:200px;
+       position:absolute;left:350px;
+       top:250px;
+       z-index:4;
+       background-color:lightgreen;
+       -moz-border-radius:30px;
+      }
+.three{ padding:30px; width:200px;
+         position:absolute;left:400px;
+         top:300px;
+         z-index:2;
+          background-color:lightsalmon;
+          -moz-border-radius:30px;
+        }

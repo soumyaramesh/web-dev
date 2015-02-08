@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="initial-scale=1, minimum-scale=1">
+
+    <link type="text/css" rel="stylesheet" href="css/exp2.css" />
+    <script type="text/javascript">
+        var top1 = 'stack1';
+        function mymove(curr) {
+            
+            oldstack = document.getElementById(top1).style;
+            newstack = document.getElementById(curr).style;
+            oldstack.zIndex = '0';
+            newstack.zIndex = '10';
+            top1 = curr;
+        }
+        
+    </script>
+
+        <title>Stack of Paragraphs</title>
+
+
+    </head>
+
+    <body>
+        
+            <h1 style="color:rosybrown">Stack of Paragraphs</h1>
+        <fieldset>
+            <h3>About the Experiment</h3>
+            <p>I'm using Javascript to change the z-index of the corresponding paragraph's style when the mouse is hovered over it, thus making it visible on the top of the stack of paragraphs.</p>
+            <br />
+            <div style="height:400px;width:500px">
+                <p class='one' id="stack1" onmouseover="mymove('stack1');">
+                    Paragraph1: This is p1. When you hover over me, I appear on top!
+                </p>
+
+                <p class='two' id="stack2" onmouseover="mymove('stack2');">
+                    Paragraph2: This is p2. When you hover over me, I appear on top!
+                </p>
+                <p class='three' id="stack3" onmouseover="mymove('stack3');">
+                    Paragraph3: This is p3. When you hover over me, I appear on top!
+                </p>
+            </div>
+        </fieldset>
+
+
+
+
+
+
+        <fieldset>
+            <h3>Source Code</h3>
+            <a href="../../fileview/Default.aspx?~/experiments/week3/experiment2.htm" target="_blank">View Source Code</a>
+        </fieldset>
+        <fieldset>
+            <h3>References</h3>
+            <nav>
+                <a href="http://codecademy.com/" target="_blank">codecademy</a>
+                <br />
+                <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+            </nav>
+        </fieldset>
+        
+    </body>
+    </html>

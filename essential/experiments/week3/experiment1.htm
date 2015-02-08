@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+    <script src="javascript/rps.js"></script>
+  
+    <title>Rock Paper Scissors!</title>
+
+    
+</head>
+
+<body style="background-color:lightcyan">
+    <h1 style="color:rosybrown">Play Rock Paper Scissors!</h1>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>This experiment uses a form to obtain user input and on submit, executes a javascript script to produce the result of the game</p>
+        <br />
+        <form>
+            <label>
+                <h2>Do you choose rock, paper or scissors?</h2>
+            </label>
+            <br />
+            <input type="text" id="choice1" />
+            <input type="button" onclick="getInput(document.getElementById('choice1'))" value="Play!" />
+        </form>
+        <br />
+        <div class="result" id="result" style="background-color:lightgreen"></div>
+
+        <br/>
+
+
+
+    </fieldset>
+
+        <fieldset>
+            <h3>Source Code</h3>
+            <a href="../../fileview/Default.aspx?~/experiments/week3/experiment1.htm" target="_blank">View Source Code</a>
+        </fieldset>
+        <fieldset>
+            <h3>References</h3>
+            <nav>
+                <a href="http://codecademy.com/" target="_blank">codecademy</a>
+                <br />
+                <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+            </nav>
+        </fieldset>
+</body>
+</html>
