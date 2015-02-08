@@ -16,7 +16,7 @@
     <h1 style="color:rosybrown">Index of First Vowel in the string</h1>
     <fieldset>
         <h3>About the Experiment</h3>
-        <p>This experiment uses a form to obtain a user input string and on submit, executes a javascript script to produce the index of the first vowel in the string and the vowel.</p>
+        <p>This experiment uses a form to obtain a user input string and on submit, executes a javascript script to produce the index of the first vowel in the string and the vowel. It is assumed that the string starts with an index of 0.</p>
         <br />
         <form>
             <label>
@@ -29,23 +29,30 @@
         <br />
         <div class="result" id="result" style="background-color:lightgreen"></div>
 
-        <br />
 
+        <p>
+            <h4>Code Snippet:</h4>
 
+            <pre style="background-color:palegoldenrod"><code>function isvowel(elem)
+         {
+            var vowels="aeiouAEIOU";
+            var str=elem.value;
+            var chr=" ";
+            var nIndx=-1;
+            var pos=0;
+            for(; pos&lt;str.length;pos++) {
+               chr=str.charAt(pos);
+               if(vowels.indexof(chr)!=-1) {
+                  nindx=vowels.indexOf(chr);
+                  break;
+                  }
+             }
+           }</code></pre>
+        </p>
 
+    
+        <p>The variable vowels is initialized to contain a string of all vowels. The user input string is looped through one character at a time and the .indexof(chr) function is used to check if that character is present in the vowel string. If it is, the current position and character is returned. Else, there is no vowel in the string.</p>
     </fieldset>
-    <p>
-        <h4>Code Snippet:</h4>
-        <br /><br />
-        <textarea id="textAreax">
-            &lt;div class=row&gt;
-            &lt;div class="col-xs-6 col-sm-3"&gt;.col-xs-6 .col-sm-3&lt;/div&gt;
-            &lt;div class="clearfix visible-xs-block"&gt;&lt;/div&gt;
-            &lt;div class="col-xs-6 col-sm-3"&gt;.col-xs-6 .col-sm-3&lt;/div&gt;
-            &lt;/div&gt;
-        </textarea>
-    </p>
-
     <fieldset>
         <h3>Source Code</h3>
         <a href="../../fileview/Default.aspx?~/experiments/week3/experiment3.htm" target="_blank">View Source Code</a>
