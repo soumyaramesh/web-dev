@@ -32,7 +32,7 @@
             <h3>About the Experiment</h3>
             <p>I'm using Javascript to change the z-index of the corresponding paragraph's style when the mouse is hovered over it, thus making it visible on the top of the stack of paragraphs.</p>
             <br />
-            <div style="height:400px;width:500px">
+            <div style="height:300px;width:500px">
                 <p class='one' id="stack1" onmouseover="mymove('stack1');">
                     Paragraph1: This is p1. When you hover over me, I appear on top!
                 </p>
@@ -44,7 +44,20 @@
                     Paragraph3: This is p3. When you hover over me, I appear on top!
                 </p>
             </div>
-        </fieldset>
+
+            <p>
+                <h4>Code Snippet:</h4>
+
+                <pre style="background-color:palegoldenrod"><code>var top1 = 'stack1';
+        function mymove(curr) {
+            oldstack = document.getElementById(top1).style;
+            newstack = document.getElementById(curr).style;
+            oldstack.zIndex = '0';
+            newstack.zIndex = '10';
+            top1 = curr;
+        }</code></pre>
+    <p>top1 holds the current paragraph which is on top and curr holds the paragraph on which the mouse is currently hovering over. The z-index property is used to control the stack order of the element. An element with a higher z-index appears above an element with a lower z-index value. In the code above, when the mouse is hovered over a paragraph, it's z-index value is made higher than that of the current top.</p>
+</fieldset>
 
 
 
