@@ -1,0 +1,15 @@
+﻿#button{
+    display: inline-block;
+    height:20px;
+	width:70px;
+	background-color:blue;
+	color:white;
+	border-radius: 5px;
+	text-align:center;
+	margin-top:2px;
+}
+
+.list {
+    background-color:lightgreen;
+    width:200px;
+}

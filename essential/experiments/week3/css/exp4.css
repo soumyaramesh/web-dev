@@ -1,0 +1,18 @@
+﻿#blue {
+    height: 150px;
+    width: 200px;
+    border-radius: 5px;
+    background-color: blue;
+    text-align: center;
+    font-size:30px;
+    color: black;
+    font-family: Arial;
+    opacity: 0.4;
+}
+
+#orange {    
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    background-color: #FA6900;
+    border-radius: 5px;}

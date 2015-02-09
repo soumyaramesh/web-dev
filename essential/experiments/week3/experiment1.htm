@@ -16,8 +16,8 @@
     <h1 style="color:rosybrown">Play Rock Paper Scissors!</h1>
     <fieldset>
         <h3>About the Experiment</h3>
-        <p>This experiment uses a form to obtain user input and on submit, executes a javascript script to produce the result of the game</p>
-        <br />
+        <p>This experiment uses a form to obtain user input and on submit, executes a javascript script to produce the result of the game. Rock beats scissors, Scissors beats paper and paper beats rock.</p>
+        
         <form>
             <label>
                 <h2>Do you choose rock, paper or scissors?</h2>
@@ -31,7 +31,28 @@
 
         <br/>
 
+        <p>
+            <h4>Code Snippet:</h4>
 
+            <pre style="background-color:palegoldenrod"><code>var getInput = function (choice1) {
+    var userChoice = choice1.value
+    document.getElementById("result").innerHTML = "You chose " + userChoice";
+    var computerChoice = Math.random();
+    if (computerChoice < 0.34) {
+        computerChoice = "rock";
+    } else if (computerChoice <= 0.67) {
+        computerChoice = "paper";
+    } else {
+        computerChoice = "scissors";
+    }
+    document.getElementById("result").innerHTML += "Computer chose " + computerChoice";
+    var result= compare(userChoice, computerChoice);
+    document.getElementById("result").innerHTML+=result;
+}</code></pre>
+        </p>
+
+
+        <p>The user's input is obtained through a form and that value is passed to the getInput function. The computerChoice is computer using the Math.random() function which provides a value between 0 and 1. The user's choice and computer's choice are then compared and the winner is determined.</p>
 
     </fieldset>
 

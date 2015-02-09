@@ -1,86 +1,55 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-
-    <meta name="viewport"
-          content="initial-scale=1, minimum-scale=1">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Week2-Bootstrap Alerts Examples</title>
-
-
+    <title>To Do List Using jQuery</title>
+    <link rel='stylesheet' type='text/css' href='css/exp5.css' />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/exp5.js"></script>
 </head>
-
 <body>
-    <h3> About the Experiment</h3>
-    <p>
-        Alerts are used to provide feedback to user actions. Include any text and an optional dismiss button in .alert and one of the four contextual classes: alert-success, alert-info, alert-warning, alert-danger. I have demonstrated a few Bootstrap alert types below:
-    </p>
-
-    <div class="alert alert-success" role="alert">Success!</div>
-    <div class="alert alert-info" role="alert">Info:</div>
-    <div class="alert alert-warning" role="alert">Warning!</div>
-    <div class="alert alert-danger" role="alert">Danger!</div>
-
-    <div>
-        <h4>Code Snippet:</h4>
+    <h1 style="color:rosybrown">To Do List Using jQuery</h1>
+    <fieldset style="background-color:antiquewhite">
+        <h3>About the Experiment</h3>
+        <p>This is a To-Do list. An item can be added by entering the item in the text box and clicking Add. An item can be removed by clicking on that item. </p>
         <br />
-        <textarea id="textAreay">
-            &lt;div class="alert alert-success" role="alert"&gt;Success!&lt;/div&gt;
-            &lt;div class="alert alert-danger" role="alert"&gt;Danger!&lt;/div&gt;
-        </textarea>
-    </div>
 
-    <h4> Dismissible alerts</h4>
-    <p>In order to have dismissible alerts, we can add an optional .alert-dismissible and a close button.</p>
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Success!</strong> You have successfully downloaded the file!
-    </div>
+        <form>
+            <input type="text" name="listItem" />
+        </form>
+        <div id="button">Add</div>
+        <br/><br/>
+        <div class="list"></div>
+        <p>
+            <h4>Code Snippet:</h4>
 
-    <div>
-        <h4>Code Snippet:</h4>
-        <br />
-        <textarea id="textAreay">
-            &lt;div class="alert alert-success alert-dismissible" role="alert"&gt;
-            &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;&times;&lt;button&gt;
-            &lt;div class="alert alert-success" role="alert"&gt;Success!&lt;/div&gt;
-        </textarea>
-    </div>
-
-    <h4> Including Links in Alerts</h4>
-    <p> We can also choose to have a link embedded in an alert. To do this, use the .alert-link utility class to quickly provide matching colored links within any alert</p>
-    <div class="alert alert-danger" role="alert">
-        <a href="#" class="alert-link">Danger!</a>
-    </div>
-
-    <div>
-        <h4>Code Snippet:</h4>
-        <br />
-        <textarea id="textAreay">
-            &lt;div class="alert alert-success" role="alert"&gt;Success!&lt;/div&gt;
-            &lt;a href="#" class="alert-link"&gt;Danger!&lt;/a&gt;
-        </textarea>
-    </div>
-                    <br />
-                    <h3>Source Code</h3>
-                    <a href="../../fileview/Default.aspx?~/experiments/week2/experiment5.htm" target="_blank">View Source Code</a>
-                    <br />
-                    <fieldset>
-                        <h3>References</h3>
-                        <nav>
-                            <a href="http://codecademy.com/" target="_blank">codecademy</a>
-                            <br />
-                            <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
-                            <br />
-                            <a href="http://www.tutorialrepublic.com/" target="_blank">tutorial republic</a>
-                            <br />
-                            <a href="http://getbootstrap.com/components/" target="_blank">getbootstrap</a>
-                        </nav>
-                    </fieldset>
+            <pre style="background-color:palegoldenrod"><code>$(document).ready(function () {
+    $("#button").click(function () {
+        var li = $('input[name=listItem]').val();
+        $(".list").append('&lt;div class="delItem"&gt;' + li + '&lt;/div&gt;');
+    });
+    
+    $(document).on('click', '.delItem', function () {
+        $(this).remove()
+    });
+});</code></pre>
+        </p>
+        <p>
+            When the Add button is clicked, I have declared the variable li to obtain the value of the input obtained by the user. On each addition of an item, I modify the HTML div element with class="listItem" by appending a each item in a new div with class="delItem" dynamically.
+            I use this class delItem to delete an item when it is clicked using $(this).remove.
+        </p>
+    </fieldset>
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week3/experiment5.htm" target="_blank">View Source Code</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="http://codecademy.com/" target="_blank">codecademy</a>
+            <br />
+            <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+        </nav>
+    </fieldset>
 </body>
 </html>
