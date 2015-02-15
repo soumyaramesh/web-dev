@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="javascript/exp1.js"></script>
+  
+    <title>jQuery UI Accordion</title>
+
+    
+</head>
+
+<body style="background-color:peachpuff">
+    <h1 style="color:red">jQuery UI Accordion</h1>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>This experiment demonstrates the accordion widget of jQuery UI which displays headers with collapsible content panels for presenting information in a limited amount of space.</p>
+        <div id="accordion">
+            <h3>Section 1</h3>
+            <div>
+                <p>
+                    Far over the Misty Mountains cold
+                    To dungeons deep, and caverns old
+                    We must away ere break of day
+                    To seek the pale enchanted gold.
+
+                    The dwarves of yore made mighty spells,
+                    While hammers fell like ringing bells
+                    In places deep, where dark things sleep,
+                    In hollow halls beneath the fells.
+
+                    For ancient king and elvish lord,
+                    There many a gleaming golden hoard
+                    They shaped and wrought, and light they caught
+                    To hide in gems on hilt of sword.
+                </p>
+            </div>
+            <h3>Section 2</h3>
+            <div>
+                <p>
+                    On silver necklaces they strung
+                    The flowering stars, on crowns they hung
+                    The dragon-fire, in twisted wire
+                    They meshed the light of moon and sun.
+
+                    Far over the misty mountains cold
+                    To dungeons deep and caverns old
+                    We must away, ere break of day,
+                    To claim our long-forgotten gold.
+
+                    Goblets they carved there for themselves
+                    And harps of gold; where no man delves
+                    There lay they long, and many a song
+                    Was sung unheard by men or elves.
+                </p>
+            </div>
+            <h3>Section 3</h3>
+            <div>
+                <ul>
+                    <li>The pines were roaring on the height,
+                        The winds were moaning in the night.
+                        The fire was red, it flaming spread;</li>
+                    <li>The trees like torches blazed with light.</li>
+                </ul>
+            </div>
+            <h3>Section 4</h3>
+            <div>
+                <p>
+                    The bells were ringing in the dale
+                    And men looked up with faces pale;
+                    Then dragon's ire more fierce than fire
+                    Laid low their towers and houses frail.
+
+                    The mountain smoked beneath the moon;
+                    The dwarves, they heard the tramp of doom.
+                    They fled their hall to dying fall
+                    Beneath his feet, beneath the moon.
+
+                    Far over the misty mountains grim
+                    To dungeons deep and caverns dim
+                    We must away, ere break of day,
+                    To win our harps and gold from him!
+                </p>
+            </div>
+        </div>
+        
+
+        <p>
+            <h4>Code Snippet:</h4>
+
+            <pre style="background-color:palegoldenrod"><code>$(document).ready(function() {
+        $("#accordion").accordion({
+        active: 1,
+        heightStyle: "content",
+        collapsible: true
+        });
+    });
+</code></pre>
+        </p>
+
+        <h4>Description</h4>
+        <div style="background-color:antiquewhite">#accordion is the id for each header. $("#accordion").accordion is used to reference the headers with id="accordion" and .accordion is used to convert a pair of headers and content panels into an accordion.
+         We can specify several options such as active, animate, collapsible, event, header, heighStyle and so on. Here, I have experimented with active, heighStyle and collapsible.
+        <ul>
+            <li>active is used to specify which header should be active when the accordion is loaded. Since I have specified active:1, the second panel is active. 0 is for the first panel.</li>
+            <li>heighStyle has 3 options. "content" is used when the height of the panel is according to that of the content size. "auto" is used when all panels will be set to the height of the tallest panel and "fill" is used to expand to the available height based on the accordion's parent height.</li>
+            <li>collapsible is used when all the sections can be closed at once. It allows to collapse the active section, which is not possible in the default setting where at least one panel will be active.</li>
+        </ul>
+        </div>
+    </fieldset>
+
+        <fieldset>
+            <h3>Source Code</h3>
+            <a href="../../fileview/Default.aspx?~/experiments/week4/experiment1.htm" target="_blank">View Source Code</a>
+        </fieldset>
+        <fieldset>
+            <h3>References</h3>
+            <nav>
+                <a href="http://codecademy.com/" target="_blank">codecademy</a>
+                <br />
+                <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+                <br />
+                <a href="http://api.jqueryui.com/" target="_blank">jqueryui</a>
+            </nav>
+        </fieldset>
+</body>
+</html>

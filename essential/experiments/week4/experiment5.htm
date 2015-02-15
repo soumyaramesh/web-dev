@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="initial-scale=1, minimum-scale=1">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript" src="javascript/exp5.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/exp5.css" />
+    <title>Order Form using Angular JS</title>
+
+
+
+</head>
+
+<body style="background-color:peachpuff">
+
+    <h1 style="color:rosybrown">Order Form using Angular JS</h1>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>In this example, I have created an order form with a total price updated in real time, using one of Angular’s useful features – filters. Filters allow you to modify models and can be chained together using the pipe character |. In the example below, I have used the currency filter, to turn a number into a properly formatted price, complete with a dollar sign and cents.</p>
+        <form ng-app ng-controller="OrderFormController">
+
+            <h1>Pizza Toppings</h1>
+
+            <ul>
+                <li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{active:service.active}">
+                   
+                    {{service.name}} <span>{{service.price | currency}}</span>
+                </li>
+            </ul>
+
+            <div class="total">
+                
+                Total: <span>{{total() | currency}}</span>
+            </div>
+
+        </form>
+
+        <p>
+            <h4>Code Snippet:</h4>
+
+            <pre style="background-color:palegoldenrod">
+            <code>
+            <h5>exp.htm</h5>
+             &lt;form ng-app ng-controller="OrderFormController"&gt;
+             &lt;ul&gt;
+             &lt;li ng-repeat="service in services" ng-class="{active:service.active}"&gt;"                  
+                 {{service.name}} {{service.price | currency}}
+             &lt;/li&gt;
+             &lt;/ul&gt;
+             &lt;/form&gt;
+        <h5>exp.js</h5>
+        $scope.toppings = [
+		{
+		    name: 'Olives',
+		    price: 2,
+		    active: true
+		}, ... other array elements];
+
+        $scope.total = function () {
+        var total = 0;
+        angular.forEach($scope.services, function (s) {
+            if (s.active) {
+                total += s.price;
+            }
+        });
+        return total;
+        </code>
+        </pre>
+
+            <h4>Description</h4>
+            <div style="background-color:antiquewhite">
+                The ng-repeat binding lets you loop through an array of items and generate markup for them. It is intelligently updated when an item is changed or deleted.
+                <br/>Notice how I have used the currency filter to format the currency as dollars and cents.    
+                <br/>$scope.toppings defines the model properties. The view will loop through the toppings array and generate a li element for every one of its items.
+                <br/>The total price is computed using the angular forEach helper method to loop through the toppings array.
+            </div>
+    </fieldset>
+
+
+
+
+
+
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week4/experiment5.htm" target="_blank">View Source Code</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="http://codecademy.com/" target="_blank">codecademy</a>
+            <br />
+            <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+            <br />
+            <a href="http://tutorialzine.com/" target="_blank">tutorialzine</a>
+        </nav>
+    </fieldset>
+
+</body>
+</html>

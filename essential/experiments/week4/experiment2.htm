@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="initial-scale=1, minimum-scale=1">
+
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"> 
+    <link type="text/css" rel="stylesheet" href="css/exp2.css" />
+        <title>jQuery Resizable</title>
+    <script src="javascript/exp2.js"></script>
+
+
+
+    </head>
+
+<body style="background-color:peachpuff">
+
+    <h1 style="color:rosybrown">jQuery Resizable</h1>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>This experiment demonstrates the Resizable widget in jQuery in which you can change the size of an element by dragging with a mouse. Use the mouse to extend or contract the element.</p>
+        <div id="resizable"></div>
+        <br />
+        <div id="also"></div>
+
+
+        <p>
+            <h4>Code Snippet:</h4>
+
+            <pre style="background-color:palegoldenrod">
+            <code>
+$(document).ready(function () {
+    $("#resizable").resizable({
+        alsoResize: "#also",
+        aspectRatio: true,
+        autoHide: true,
+        ghost: true,
+        maxHeight: 300
+    });
+});
+                    
+                    </code>
+                </pre>
+        
+            <h4>Description</h4>
+            <div style="background-color:antiquewhite">
+                #resizable is the id for the div that needs to be resized. Another div with id "#also" is created. .resizable is used to create a resizable element.
+                We can specify several options such as maxHeight, maxWidth, minHeight, minWidth, autoHide, ghost and so on. Here, I have experimented with maxHeight, ghost, autoHide and alsoResize.
+                <ul>
+                    <li>alsoResize is used to specify another element that is to be synchronously resized when the current element is resized. Since I have specified alsoResize: "#also", the div with id "also" is resized simultaneously.</li>
+                    <li>aspectRatio is used to retain the same aspectRatio. I have set aspectRatio to be true. You can also specify a number which forces the element to maintain a specific aspect ratio during resizing.</li>
+                    <li>autoHide is used to hide the resize handle unless the mouse is hovered over it.</li>
+                    <li>ghost: If it is set to true, a semi-transparent helper element is shown for resizing.</li>
+                    <li>maxHeight is used to specify the maximum height to which the element can be resized.</li>
+                </ul>
+            </div>
+    </fieldset>
+
+
+
+
+
+
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week4/experiment2.htm" target="_blank">View Source Code</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="http://codecademy.com/" target="_blank">codecademy</a>
+            <br />
+            <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+            <br />
+            <a href="http://api.jqueryui.com/" target="_blank">jqueryui</a>
+        </nav>
+    </fieldset>
+
+</body>
+    </html>

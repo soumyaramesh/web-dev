@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="initial-scale=1, minimum-scale=1">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/exp3.css" />
+    <title>Navigation Menu using Angular JS</title>
+    
+
+
+</head>
+
+<body style="background-color:peachpuff">
+
+    <h1 style="color:rosybrown">Navigation Menu using Angular JS</h1>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>AngularJS is a framework that binds HTML to JavaScript objects. When the models change, the page updates automatically. AngularJS provides a large number of directives for this purpose. They are attributes that start with ng- and can be added to any element. In this experiment, I have built a navigation menu using Angular JS. The selected menu item is highlighted.</p>
+        <div id="main" ng-app>
+
+            <nav class="{{active}}" ng-click="$event.preventDefault()">
+
+                <!-- When a link in the menu is clicked, we set the active variable -->
+
+                <a href="#" class="home" ng-click="active='home'">Home</a>
+                <a href="#" class="projects" ng-click="active='projects'">Projects</a>
+                <a href="#" class="blog" ng-click="active='blog'">Blog</a>
+                <a href="#" class="contact" ng-click="active='contact'">Contact</a>
+            </nav>
+
+
+            <p ng-hide="active" style="font-size:large">Please click a menu item</p>
+            <p ng-show="active">You chose <b>{{active}}</b></p>
+        </div>
+
+
+        <p>
+            <h4>Code Snippet:</h4>
+
+            <pre style="background-color:palegoldenrod">
+            <code>
+        &lt;div id="main" ng-app&gt;
+        &lt;nav class="{{active}}" ng-click="$event.preventDefault()"&gt;
+        &lt;a href="#" class="home" ng-click="active='home'"&gt;Home&lt;/a&gt;
+        ... Other menu items
+        &lt;/nav&gt;
+
+        &lt;p ng-hide="active"&gt;Please click a menu item&lt;/p&gt;
+        &lt;p ng-show="active"&gt;You chose {{active}}&lt;/p&gt;
+        &lt;/div&gt;
+
+
+        </code>
+        </pre>
+
+        <h4>Description</h4>
+        <div style="background-color:antiquewhite">
+            In the code above, Angular’s directives is used to set and read the active variable. When it changes, HTML that uses it is updated automatically. In Angular’s terminology, this variable is called a model.
+            When the framework sees {{variable}}, it replaces it with the contents of the variable. This operation is repeated every time the variable is changed.
+            The navigation menu will get the value of the "active" variable as a class. When a link in the menu is clicked, we set the active variable. 
+            <br/>ng-show will show an element if the value in the quotes is true,
+            while ng-hide does the opposite. Because the active variable is not set
+            initially, this will cause the first paragraph to be visible.
+        </div>
+    </fieldset>
+
+
+
+
+
+
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week4/vowel.htm" target="_blank">View Source Code</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="http://codecademy.com/" target="_blank">codecademy</a>
+            <br />
+            <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+            <br />
+            <a href="http://tutorialzine.com/" target="_blank">tutorialzine</a>
+        </nav>
+    </fieldset>
+
+</body>
+</html>

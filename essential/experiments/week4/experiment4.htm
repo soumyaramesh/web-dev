@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="initial-scale=1, minimum-scale=1">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript" src="javascript/exp4.js" ></script>
+    <link type="text/css" rel="stylesheet" href="css/exp4.css" />
+    <title>Inline Editor using Angular JS</title>
+
+
+
+</head>
+
+<body style="background-color:peachpuff">
+
+    <h1 style="color:rosybrown">Inline Editor using Angular JS</h1>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>In this experiment, clicking the paragraph "Edit me" will show a tooltip with a text field. A controller will initialize the models and declare two methods for toggling the visibility of the tooltip. Controllers are regular JavaScript functions which are executed automatically by Angular, and which are associated with your page using the ng-controller directive.</p>
+        <div id="main" ng-app ng-controller="InlineEditorController" ng-click="hideTooltip()">
+
+            <!-- This is the tooltip. It is shown only when the showtooltip variable is truthful -->
+            <div class="tooltip" ng-click="$event.stopPropagation()" ng-show="showtooltip">
+
+                <!-- ng-model binds the contents of the text field with the "value" model.
+             Any changes to the text field will automatically update the value, and
+             all other bindings on the page that depend on it.  -->
+                <input type="text" ng-model="value" />
+            </div>
+
+            <!-- Call a method defined in the InlineEditorController that toggles
+         the showtooltip variable -->
+            <p ng-click="toggleTooltip($event)">{{value}}</p>
+
+        </div>
+
+        <p>
+            <h4>Code Snippet:</h4>
+
+            <pre style="background-color:palegoldenrod">
+            <code>
+        &lt;div id="main" ng-app ng-controller="InlineEditorController" ng-click="hideTooltip()"&gt;
+        &lt;div class="tooltip" ng-click="$event.stopPropagation()" ng-show="showtooltip"&gt;
+            &lt;input type="text" ng-model="value" /&gt;     
+        &lt;/div&gt;
+        &lt;/div&gt;
+        
+        function InlineEditorController($scope) {
+        $scope.showtooltip = false;
+        $scope.value = 'Click and Edit me.';
+        $scope.hideTooltip = function () {
+            $scope.showtooltip = false;
+        }
+        </code>
+        </pre>
+
+            <h4>Description</h4>
+            <div style="background-color:antiquewhite">
+                In the code above, ng-model binds the contents of the text field with the "value" model.
+		 Any changes to the text field will automatically update the value, and
+		 all other bindings on the page that depend on it.
+                $scope is a special object that makes its properties available to the view as variables.
+                When the model is changed, the view will be automatically updated by by AngularJS. Here, $scope.hideTooltip = function () {
+            $scope.showtooltip = false; }, the tooltip is automatically updated.
+
+            </div>
+    </fieldset>
+
+
+
+
+
+
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week4/experiment4.htm" target="_blank">View Source Code</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="http://codecademy.com/" target="_blank">codecademy</a>
+            <br />
+            <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+            <br />
+            <a href="http://tutorialzine.com/" target="_blank">tutorialzine</a>
+        </nav>
+    </fieldset>
+
+</body>
+</html>
