@@ -3,3 +3,4 @@ week1/index.htm							Week1-HTML5
 week2/index.htm							Week2-CSS Experiments with Bootstrap
 week3/index.htm							Week3-Javascript and JQuery
 week4/index.htm							Week4-JQuery UI and Angular JS
+week5/index.htm							Week4-More on Angular JS

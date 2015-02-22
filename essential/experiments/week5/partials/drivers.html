@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>F-1 Feeder</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+    <script src="javascript/app.js"></script>
+    <script src="javascript/services.js"></script>
+    <script src="javascript/controller.js"></script>
+</head>
+
+<body ng-app="F1FeederApp" ng-controller="driversController">
+    <h2>About the Experiment</h2>
+    <p>Extending the previous experiment, I created a driver details page which will let us click on each driver and see his/her career details.</p>
+    <p>I do so by adding two such routes: one for the championship table and another for the driver details which contains the summary of all the relevant facts about the driver (e.g., birth, nationality) along with a table containing his/her recent results.</p>
+    <hr/>
+    <h3>Search</h3>
+    <input type="text" ng-model="nameFilter" placeholder="Search..." />
+    <br/>
+    <br/>
+    <h3>Drivers Live F-1 Championship Standings</h3>
+    <table class="table-bordered table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Team</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr ng-repeat="driver in driversList | filter: nameFilter">
+                <td>{{$index + 1}}</td>
+                <td>
+                    <a href="#/drivers/{{driver.Driver.driverId}}">
+                        {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
+                    </a>
+                </td>
+                <td>{{driver.Constructors[0].name}}</td>
+                <td>{{driver.points}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+    <hr/>
+    <p>
+        <h3>Code Snippet:</h3>
+        
+        <pre style="background-color:palegoldenrod">
+        
+        <code>
+
+<strong>app.js</strong>
+    app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.
+      when("/drivers", { templateUrl: "partials/drivers.html", controller: "driversController" }).
+      when("/drivers/:id", { templateUrl: "partials/driver.html", controller: "driverController" }).
+      otherwise({ redirectTo: '/drivers' });
+}]);
+
+<strong>controller.js</strong>
+controller('driverController', function ($scope, $routeParams, ergastAPIservice) {
+      $scope.hi = "hi from driverController";
+      $scope.id = $routeParams.id;
+      $scope.races = [];
+      $scope.driver = null;
+      ergastAPIservice.getDriverDetails($scope.id).success(function (response) {
+          $scope.driver = response.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
+      });
+      ergastAPIservice.getDriverRaces($scope.id).success(function (response) {
+          $scope.races = response.MRData.RaceTable.Races;
+      });
+  });
+
+        </code>
+        </pre>
+    </p>
+
+
+    <h4>Description</h4>
+    <div style="background-color:beige" class="container-fluid">
+        <p>First, we include the $routeProvider service (in app.js) which will help us deal with these varied application routes.</p>
+        <p>When the route is to the drivers page, the drivers view is displayed and I have assosiated a specific controller called driversController.</p>
+        <p>When the route is to the individual driver page, the driver view with individual driver details is displayed and I have assosiated a specific controller called driverController.</p>
+        <p>Whenever we navigate through our app routes, Angular will load the associated view and render it in place of the &lt;ng-view&gt; tag.</p>
+<br/>
+        <p>In controller.js, notice here is that we just injected the $routeParams service into the driver controller. This service will allow us to access our URL parameters (for the :id, in this case) using $routeParams.id.</p>
+        <p>We provide the driver’s ID to the service so that we retrieve the information relevant solely to a specific driver</p>
+     </div>
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week5/partials/drivers.html" target="_blank">View Source Code</a>
+    </fieldset>
+        <fieldset>
+            <h3>References</h3>
+            <nav>
+                <a href="https://www.youtube.com/watch?v=jelXe-t2MPQ" target="_blank">Prof Jose's Lectures</a>
+                <br />
+                <a href="http://codecademy.com/" target="_blank">codecademy</a>
+                <br />
+                <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+                <br />
+                <a href="http://www.toptal.com/angular-js/" target="_blank">toptal</a>
+            </nav>
+        </fieldset>
+    <br/>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+            

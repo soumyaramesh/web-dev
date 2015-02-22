@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>F-1 Feeder</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+    <script src="javascript/app.js"></script>
+    <script src="javascript/services.js"></script>
+    <script src="javascript/controller.js"></script>
+</head>
+
+<body ng-app="F1FeederApp" ng-controller="driversController" style="background-color:lightsteelblue">
+    
+       
+        <h1 style="color:palevioletred"> Loading Data from the Server</h1>
+        <fieldset>
+            <h4>About the Experiment</h4>
+            <p>Last week, I learnt how to display our controller’s data in our view and now, I have learnt to actually fetch live data from a RESTful server.
+
+To facilitate communication with HTTP servers, AngularJS provides the $http and $resource services. The former is but a layer on top of XMLHttpRequest or JSONP, while the latter provides a higher level of abstraction.</p>
+            <p>In this experiment, I have obtained data for the complete F-1 driver championship standings for the current season and represented it in a table. To do this, I have used the ergast API to provide driver details in JSONP format.</p>
+
+        </fieldset>
+        <br />
+        <table class="table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Team</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="driver in driversList">
+                    <td>{{$index + 1}}</td>
+                    <td>
+                        {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
+                    </td>
+                    <td>{{driver.Constructors[0].name}}</td>
+                    <td>{{driver.points}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Code Snippet:</h3>
+
+        <pre style="background-color:palegoldenrod">
+        
+        <code>
+<strong>services.js</strong>
+angular.module('F1FeederApp.services', []).
+  factory('ergastAPIservice', function($http) {
+    var ergastAPI = {};
+    ergastAPI.getDrivers = function() {
+      return $http({
+        method: 'JSONP', 
+        url: 'http://ergast.com/api/f1/current/driverStandings.json?callback=JSON_CALLBACK'
+      });
+    }
+    return ergastAPI;
+  });
+
+<strong>app.js</strong>
+angular.module('F1FeederApp', [
+  'F1FeederApp.controllers',
+  'F1FeederApp.services'
+]);
+
+<strong>controller.js</strong>
+angular.module('F1FeederApp.controllers', []).
+  controller('driversController', function($scope, ergastAPIservice) {
+    $scope.driversList = [];
+    ergastAPIservice.getDrivers().success(function (response) {
+        $scope.driversList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+    });
+  });
+        </code>
+        </pre>
+        </p>
+
+
+        <h4>Description</h4>
+        <div style="background-color:beige" class="container-fluid">
+            <p>As mentioned earlier, To facilitate communication with HTTP servers, AngularJS provides the $http and $resource services. 
+            In the first two lines, we create a new module (F1FeederApp.services) and register a service within that module (ergastAPIservice). Notice that $http is passed as a parameter to that service. This tells Angular’s dependency injection engine that our new service requires (or depends on) the $http service.</p>
+            <p>Similarly, we need to tell Angular to include our new module into our app. In app.js we add F1FeederApp.controllers and F1FeederApp.services as dependencies. </p>
+            <p>In controller.js, we include ergastAPIservice as a dependency.</p>
+
+        </div>
+        <fieldset>
+            <h3>Source Code</h3>
+            <a href="../../fileview/Default.aspx?~/experiments/week5/experiment2.htm" target="_blank">View Source Code</a>
+        </fieldset>
+        <fieldset>
+            <h3>References</h3>
+            <nav>
+                <a href="https://www.youtube.com/watch?v=jelXe-t2MPQ" target="_blank">Prof Jose's Lectures</a>
+                <br />
+                <a href="http://codecademy.com/" target="_blank">codecademy</a>
+                <br />
+                <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+                <br />
+                <a href="http://www.toptal.com/angular-js/" target="_blank">toptal</a>
+            </nav>
+        </fieldset>
+        <br />
+
+</body>
+</html>

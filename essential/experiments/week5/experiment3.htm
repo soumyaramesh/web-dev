@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>F-1 Feeder</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+    <script src="javascript/app.js"></script>
+    <script src="javascript/services.js"></script>
+    <script src="javascript/controller.js"></script>
+</head>
+
+<body ng-app="F1FeederApp" ng-controller="driversController" style="background-color:lightsteelblue">
+
+    <h1 style="color:palevioletred"> Adding a Search Filter</h1>
+    <fieldset>
+        <h4>About the Experiment</h4>
+        <p>The previous experiment shows a list of data loaded from the server, but it only shows a list of drivers. 
+        In this experiment, I have extended the previous experiment bysome functionality by implementing a simple text search input which will filters the list based on The Driver's name or Driver's team name.</p>
+        <p>The code snippet below explains how we can achieve this in detail.</p>
+    <h3>Search</h3>
+    </fieldset>
+    <input type="text" ng-model="nameFilter" placeholder="Search..." />
+    <br />
+    <br/>
+    <table class="table-bordered table-striped table-condensed">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Team</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="driver in driversList | filter: nameFilter">
+                <td>{{$index + 1}}</td>
+                <td>
+                    {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
+                </td>
+                <td>{{driver.Constructors[0].name}}</td>
+                <td>{{driver.points}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Code Snippet:</h3>
+
+    <pre style="background-color:palegoldenrod">
+        
+    <code>
+ &lt;input type="text" ng-model="nameFilter" placeholder="Search..." /&gt;
+ &lt;tr ng-repeat="driver in driversList | filter: nameFilter"&gt;
+
+ <strong>controller.js</strong>
+  $scope.searchFilter = function (driver) {
+    var re = new RegExp($scope.nameFilter, 'i');
+    return !$scope.nameFilter || re.test(driver.Driver.givenName) || re.test(driver.Driver.familyName);
+   };
+        </code>
+        </pre>
+    </p>
+
+
+    <h4>Description</h4>
+    <div style="background-color:beige" class="container-fluid">
+        <p>I am making use of the ng-model directive. This directive binds our text field to the $scope.nameFilter variable and makes sure that its value is always up-to-date with the input value.</p>
+        <p>filter:nameFilter tells ng-repeat that, before outputting the data, the driversList array must be filtered by the value stored in nameFilter. I am filtering based on the Driver's name or Driver's team name.</p>
+        <p>At this point, two-way data binding kicks in: every time a value is input in the search field, Angular immediately ensures that the $scope.nameFilter that we associated with it is updated with the new value. Since the binding works both ways, the moment the nameFilter value is updated, the second directive associated to it (i.e., the ng-repeat) also gets the new value and the view is updated immediately.</p>
+        
+    </div>
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week5/experiment3.htm" target="_blank">View Source Code</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="https://www.youtube.com/watch?v=jelXe-t2MPQ" target="_blank">Prof Jose's Lectures</a>
+            <br />
+            <a href="http://codecademy.com/" target="_blank">codecademy</a>
+            <br />
+            <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+            <br />
+            <a href="http://www.toptal.com/angular-js/" target="_blank">toptal</a>
+        </nav>
+    </fieldset>
+    <br />
+</body>
+</html>
