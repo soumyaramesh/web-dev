@@ -2,5 +2,5 @@
 experiment1.htm                 First Page with Routing 
 experiment2.htm					Loading Data from the Server
 experiment3.htm					Adding a Search Filter
-experiment4.htm					F-1 Chamipionship Standings App
-experiment5.htm					Order Form
+experiment4.htm					F-1 Championship Standings App
+
