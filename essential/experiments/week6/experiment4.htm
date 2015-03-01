@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>NodeJS Delete Nested JSON</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+    <script src="javascript/app.js"></script>
+    <script src="javascript/services.js"></script>
+    <script src="javascript/controller.js"></script>
+</head>
+
+<body ng-app="F1FeederApp" ng-controller="driversController" style="background-color: peachpuff">
+
+
+    <h1 style="color:palevioletred"> Delete Nested JSON</h1>
+    <div class="container-fluid" style="border:2px solid; width:700px; height:600px; border-radius:30px">
+        <a href="http://nodejs-soumyaramesh.rhcloud.com/exp4.html"> <h4>Click Here to see the Output</h4></a>  </br></br>
+        <img src="../images/week6_4.jpg" alt="exp4 Output">
+    </div>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>This experiment is an extension of the previous experiment where I have added new buttons to delete each chapter of a book when it is selected.
+        <p>For a selected book, it's chapters are displayed in a table. When the delete button is clicked for a particular chapter, it's index is obtained and spliced from the nested chapters list.</p>
+
+    </fieldset>
+    <br />
+
+    <h3>Code Snippet:</h3>
+
+    <pre style="background-color:palegoldenrod">
+        
+    <code>
+<strong>exp4.html</strong>
+&lt;button ng-click="removeChapter($index)" class="btn btn-danger"&gt;
+    &lt;span class="glyphicon glyphicon-remove"&gt;&lt;/span&gt;
+&lt;/button&gt;
+
+<strong>server.js</strong>
+app.delete("/book/:index/chapter/:chapterIndex", function (req, res) {
+    var index = req.params.index;
+    books[index].chapters.splice(req.params.chapterIndex, 1);
+    res.json(books);
+})
+
+<strong>clientApp.js</strong>
+$scope.removeChapter = function (chapIndex) {
+   $http.delete("/book/" + $scope.selectedIndex + "/chapter/" + chapIndex)
+    .success(function (response) {
+            $scope.books = response;
+            $scope.book = response[$scope.selectedIndex];
+        })
+    }
+        </code>
+        </pre>
+    </p>
+
+
+    <h4>Description</h4>
+    <div style="background-color:beige" class="container-fluid">
+        <p>
+           A new button is created in each row for the chapter to be deleted.
+        </p>
+        <p>The server is looking for a delete to be generated in the form of /book/:index/chapter/:chapterIndex where index is the index of the book which was initially clicked and chapterIndex is the index of the chapter that is to be deleted.
+        books[index].chapters will access the inner chapters list.
+        <br/>
+        .splice(req.params.chapterIndex, 1) will splice the chapter with the corresponding chapterIndex. </p>
+        <p>When the delete button is clicked, the removeChapter handler is called which generates a $http.delete in the form of "/book/" + $scope.selectedIndex + "/chapter/" + chapIndex which is caught by the server to perform the delete task.</p>
+
+    </div>
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week6/experiment4.htm" target="_blank">experiment4.htm</a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week6/server.js" target="_blank">server.js</a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week6/clientApp.js" target="_blank">clientApp.js</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="https://www.youtube.com/user/jannunzi" target="_blank">Prof Jose's Lectures</a>
+            <br />
+        </nav>
+    </fieldset>
+    <br />
+
+</body>
+</html>

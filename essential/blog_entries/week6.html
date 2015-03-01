@@ -1,0 +1,22 @@
+﻿<h4>Blog... Experiments with NodeJS </h4>
+<hr />
+<p>
+    This week I did 5 experiments using NodeJS.
+</p>
+<h5>NodeJS Response Setup </h5>
+<p>In this experiment, I setup NodeJS and demonstrated a simple NodeJS application which displays information from a static web page which is stored in a common public directory.</p>
+<h5>NodeJS JSON Get, Delete and Post</h5>
+<p>In this experiment, I have stored a list of books as a JSON object called books. It has the following fields: title, author and chapters. Chapters within itself is a nested JSON list.
+I have retrieved JSON data and displayed the title and author of each book in the form of a table. I provided 2 buttons, one to add a new book and another set of buttons to delete each book. To do this, I have used app.delete to splice the books array based on the index of the selected book and used app.post to add a new book to the list of JSON values.</p>
+<h5>Select and Details</h5>
+<p>This experiment is an extension of the previous experiment where I added a new button to select and edit a particular book. When this button is clicked, it's value is copied onto the form, this is known as copy by reference.
+ Additionally, when a book is selected, its chapters are displayed below in the form of a table. chapters is a nested list within the books JSON and I iterate through this inner list and display it as a table. </p>
+<h5>Delete Nested JSON</h5>
+<p>Extending the previous experiment, I added new buttons to delete each chapter of a book when it is selected.
+For a selected book, it's chapters are displayed in a table. When the delete button is clicked for a particular chapter, it's index is obtained and spliced from the nested chapters list.</p>
+<h5>Update or Modify JSON</h5>
+<p>This experiment is an extension of the previous experiment where I have another new button to update the author or title of a book when it is selected.
+To do this, I used app.put in server.js.  The value of the book can now be modified and updated so that the change is reflected in the original books JSON object.</p>
+<h5>Summary</h5>
+<p>This week was quite interesting. I started with NodeJS from the scratch with guidance from Prof Jose's lectures. It was time consuming to understand the architecture and re-implement the experiments that were demonstrated in class. The only challenging task was when I had to get it running using OpenShift where I faced some issued which took a long time to figure out. Overall, this was a very productive week.</p>
+<p><a href="http://net4.ccs.neu.edu/home/soumya/experiments/week5/index.htm">View Week5 Experiments</a></p>
