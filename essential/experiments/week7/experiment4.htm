@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Adding Chapters for a book</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+    <script src="javascript/app.js"></script>
+    <script src="javascript/services.js"></script>
+    <script src="javascript/controller.js"></script>
+</head>
+
+<body ng-app="F1FeederApp" ng-controller="driversController" style="background-color: peachpuff">
+
+
+    <h1 style="color:palevioletred"> Adding Chapters for a book</h1>
+    <div class="container-fluid" style="border:2px solid; width:700px; height:500px; border-radius:30px">
+        <a href="http://nodejs-soumyaramesh.rhcloud.com/exp4.html"> <h4>Click Here to see the Output</h4></a>  </br></br>
+        <img src="../images/week6_4.jpg" alt="exp4 Output">
+    </div>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>This experiment is an extension of the previous experiment where I have added a new button to add a chapter for a book when it is selected.
+        <p>For a selected book, it's chapters are displayed in a table. When the add button is clicked for a particular chapter, the chapters array of that Book is updated in the database.</p>
+        <div class="container-fluid" style="border:2px solid; width:700px; height:210px; border-radius:30px">
+            <img src="../images/week7-exp4-db.jpg" alt="exp1-db Output">
+        </div>
+    </fieldset>
+    <br />
+
+    <h3>Code Snippet:</h3>
+
+    <pre style="background-color:palegoldenrod">
+        
+    <code>
+<strong>exp4.html</strong>
+&lt;div ng-show="selectedIndex != null"&gt;
+   You have selected the book {{book.title}}
+      Chapters:
+        &lt;table class="table-bordered&gt;
+        &lt;tbody&gt;
+          &lt;tr ng-repeat="chapter in book.chapters"&gt;
+            &lt;td&gt;{{chapter.name}}&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+       &lt;/table&gt;
+  &lt;/div&gt;
+
+<strong>server.js</strong>
+app.put("/book/:id", function (req, res) {
+    Book.update({ _id: req.params.id }, { $set: req.body }, function (err, doc) {
+        Book.find(function (err, data) {
+            res.json(data)
+        });
+    });
+});
+
+<strong>clientApp.js</strong>
+$scope.addChapter = function (chapter) {
+        if (typeof $scope.book.chapters == "undefined") {
+            $scope.book.chapters = [];
+        }
+        var newChap = {
+            name: chapter.name
+        }
+        $http.put("/book/" + $scope.book._id, $scope.book)
+        .success(function (response) {
+            $scope.books = response;
+        })
+        $scope.book.chapters.push(newChap);
+    }
+</code>
+        </pre>
+    </p>
+
+
+    <h4>Description</h4>
+    <div style="background-color:beige" class="container-fluid">
+     <p> When a new chapter is inserted, the addChapter handler is invoked which generated a http put using $http.put which matches "/book/" + $scope.book._id. <br/>
+        A new json for the chapter is created using var newChap = {name: chapter.name} and this newChap is pushed into the chapters array of the selected book.</p>   
+        Book.update({ _id: req.params.id }, { $set: req.body }) is used to update the selected book's record with the new chapter that is added.
+    </div>
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week7/experiment4.htm" target="_blank">experiment4.htm</a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week7/server.js" target="_blank">server.js</a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week7/clientApp.js" target="_blank">clientApp.js</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="https://www.youtube.com/user/jannunzi" target="_blank">Prof Jose's Lectures</a>
+            <br />
+        </nav>
+    </fieldset>
+    <br />
+
+</body>
+</html>

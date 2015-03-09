@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Deleting chapter for a book</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+    <script src="javascript/app.js"></script>
+    <script src="javascript/services.js"></script>
+    <script src="javascript/controller.js"></script>
+</head>
+
+<body ng-app="F1FeederApp" ng-controller="driversController" style="background-color: peachpuff">
+
+
+    <h1 style="color:palevioletred"> Deleting chapter for a book</h1>
+    <div class="container-fluid" style="border:2px solid; width:700px; height:500px; border-radius:30px">
+        <a href="http://nodejs-soumyaramesh.rhcloud.com/week7-exp5.html"> <h4>Click Here to see the Output</h4></a>  </br></br>
+        <img src="../images/week7-exp5.jpg" alt="exp5 Output">
+    </div>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>This experiment is an extension of the previous experiment where I have added new buttons to delete each chapter of a book when it is selected.
+        <p>For a selected book, it's chapters are displayed in a table. When the delete button is clicked for a particular chapter, it's index is obtained and spliced from the nested chapters list.</p>
+
+    </fieldset>
+    <br />
+
+    <h3>Code Snippet:</h3>
+
+    <pre style="background-color:palegoldenrod">
+        
+    <code>
+
+<strong>clientApp.js</strong>
+$scope.removeChapter = function (chapIndex) {
+        $scope.book.chapters.splice(chapIndex, 1);
+        $http.put("/book/" + $scope.book._id, $scope.book)
+       .success(function (response) {
+           $scope.books = response;
+       })
+    }
+
+</code>
+        </pre>
+    </p>
+
+
+    <h4>Description</h4>
+    <div style="background-color:beige" class="container-fluid">
+        <p>
+            A new button is created in each row for the chapter to be deleted.
+        </p>
+        <p> When the delete button is clicked, the removeChapter handler is invoked which obtains the chapter Index. <br/>
+        Using this chapterIndex, the chapter is spliced from the selected book's chapters array using $scope.book.chapters.splice(chapIndex, 1);
+            <br />
+           
+    </div>
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week7/experiment5.htm" target="_blank">experiment5.htm</a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week7/server.js" target="_blank">server.js</a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week7/clientApp.js" target="_blank">clientApp.js</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="https://www.youtube.com/user/jannunzi" target="_blank">Prof Jose's Lectures</a>
+            <br />
+        </nav>
+    </fieldset>
+    <br />
+
+</body>
+</html>

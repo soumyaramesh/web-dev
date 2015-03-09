@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete a Book from the Database</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+    <script src="javascript/app.js"></script>
+    <script src="javascript/services.js"></script>
+    <script src="javascript/controller.js"></script>
+</head>
+
+<body ng-app="F1FeederApp" ng-controller="driversController" style="background-color: peachpuff">
+    
+    
+        <h1 style="color:palevioletred"> Delete a Book from the Database</h1>
+    <div class="container-fluid" style="border:2px solid; width:700px; height:350px; border-radius:30px">
+        <a href="http://nodejs-soumyaramesh.rhcloud.com/week7-exp2.html"> <h4>Click Here to see the Output</h4></a>  </br></br>
+        <img src="../images/week7-exp2.jpg" alt="exp2 Output">
+    </div>
+        <fieldset>
+            <h4>About the Experiment</h4>
+            <p>This experiment is an extension of the previous experiment where I have created a new button to delete a book from the database. 
+            <p>The figure below shows the contents of the database after a delete is performed on the book with title "Girl on the train". </p>
+            <div class="container-fluid" style="border:2px solid; width:700px; height:550px; border-radius:30px">
+                <img src="../images/week7-exp2-db.jpg" alt="exp1-db Output">
+            </div>
+
+        </fieldset>
+        <br />
+        
+        <h3>Code Snippet:</h3>
+
+        <pre style="background-color:palegoldenrod">
+        
+        <code>
+<strong>server.js</strong>
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // for parsing application/json
+
+app.delete("/book/:id", function (req, res) {
+    Book.findById(req.params.id, function (err, data) {
+        data.remove();
+        Book.find(function (err, data) {
+            res.json(data)
+        });
+    });
+});
+
+<strong>clientApp.js</strong>
+            $scope.remove = function (id) {
+        $http.delete("/book/" + id)
+        .success(function (response) {
+            $scope.books = response;
+        });
+    };
+
+        </code>
+        </pre>
+        </p>
+
+
+        <h4>Description</h4>
+        <div style="background-color:beige" class="container-fluid">
+            <p>When the X delete button is clicked, the remove handler is called which used to generate a delete using $http.delete which looks for a match in the form of /book/id. <br/>
+             If it is a success, Book.findById is used to find the book that is to be deleted and data.remove() deletes that record.</p>
+            <p>In package.json, we include express,mongoose and body-parser as a dependencies.</p>
+
+        </div>
+        <fieldset>
+            <h3>Source Code</h3>
+            <a href="../../fileview/Default.aspx?~/experiments/week7/experiment2.htm" target="_blank">experiment2.htm</a><br/>
+            <a href="../../fileview/Default.aspx?~/experiments/week7/server.js" target="_blank">server.js</a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/week7/clientApp.js" target="_blank">clientApp.js</a>
+        </fieldset>
+        <fieldset>
+            <h3>References</h3>
+            <nav>
+                <a href="https://www.youtube.com/user/jannunzi" target="_blank">Prof Jose's Lectures</a>
+                <br />
+            </nav>
+        </fieldset>
+        <br />
+
+</body>
+</html>

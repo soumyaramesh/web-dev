@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body>
+    <p>
+        <h4>Code Snippet:</h4>
+
+        <pre style="background-color:palegoldenrod">
+        <code>
+ app.config(['$routeProvider',
+  function ($routeProvider) {
+      $routeProvider.
+        when('/home', {
+            templateUrl: 'partials/home.html'
+        }).
+        when('/about', {
+            templateUrl: 'partials/about.html'
+        }).
+        when('/codeSnippet', {
+            templateUrl: 'partials/codeSnippet.html'
+        }).
+        when('/source', {
+            templateUrl: 'partials/sourceCode.html'
+        }).
+        when('/refernces', {
+            templateUrl: 'partials/references.html'
+        }).
+        otherwise({
+            redirectTo: '/home'
+        });
+  }]);
+        </code>
+        </pre>
+    </p>
+
+    <h4>Description</h4>
+    <div style="background-color:antiquewhite" class="container-fluid">
+        In the code above, I have initially added "ngRoute" as a dependency to my app. 
+        Using the app.config() method, we request the $routeProvider to be injected into our config function and use the $routeProvider.when() method to define our routes.
+        I have not provided controllers for each individual page in this experiment.
+
+The application routes are defined as follows:
+
+when('/home'): the home page details view will be shown when the URL hash fragment matches '/home'. 
+
+when('/about'): the about page view is displayed which contains information about the experiment.
+
+when('/codeSnippet'): this page view is displayed which contains the code Snippet and its description.
+
+when('/sourceCode'): the source code page view is displayed which contains a link to the source code.
+
+when('/references'): the references page view is displayed which contains links to references.
+
+otherwise({redirectTo: '/home'}): triggers a redirection to /home when the browser address doesn't match either of our routes.
+    </div>
+    <br/>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="initial-scale=1, minimum-scale=1">
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+    
+    
+    <script src="javascript/exp1.js" type="text/javascript"></script>
+
+    <title> Display data from MongoDB </title>
+
+
+
+</head>
+
+<body style="background-color:peachpuff" ng-app="RoutingApp">
+
+    <h1 style="color:rosybrown;text-align:center ">Display data from MongoDB </h1> 
+    <br/>   
+
+    <div class="container-fluid" style="border:2px solid; width:500px; height:300px; border-radius:30px">
+        <a href="http://nodejs-soumyaramesh.rhcloud.com/week7-exp1.html"> <h4>Click Here to see the Output</h4></a>  </br></br>
+        <img src="../images/week7-exp1.jpg" alt="exp1 Output">
+    </div>
+    <h4>About the Experiment</h4>
+    <p>
+        This week is similar to last week's experiments, except that instead of using static data, I have used MongoDB to fetch and insert data.<br/>
+         In this experiment, I have inserted some book information into the database and retrieved them and displayed it in a table.
+    </p>
+    <h5>Below, I have displayed the contents of the database using RockMongo</h5>
+    <div class="container-fluid" style="border:2px solid; width:700px; height:600px; border-radius:30px">
+        <img src="../images/week7-exp1-db.jpg" alt="exp1-db Output">
+    </div>
+
+        <div class="container-fluid">
+            <h4>Code Snippet:</h4>
+
+            <pre>
+<h5>server.js</h5>
+var mongoose = require('mongoose');
+
+var BookSchema = new mongoose.Schema({
+    title: String,
+    author: String,
+    chapters: [ChapterSchema]
+}, { collection: "book" });
+//Collection
+var Book = mongoose.model("book", BookSchema);
+
+<h5>exp1.html</h5>
+&lt;table class="table-bordered table-condensed table-striped"&gt;
+    &lt;tbody&gt;
+        &lt;tr ng-repeat="b in books"&gt;
+                &lt;td&gt;b.title&lt;/td&gt;
+                &lt;td&gt;b.author&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+   </pre>
+        </div>
+        <div class="container-fluid">
+
+            <h4>Description :</h4>
+            <br />
+            <p>
+
+                require is similar to import in Java. It is used to import a library. Here, I am using the mongoose library to use the Mongoose Framework which helps us interact with MongoDB.<br />
+                I have created a new BookSchema with title, author and chapters where chapters is an array of the type ChapterSchema which we will see in future experiments. <br/>
+                mongoose.model is used to create a collection called book and associate it to the BookSchema. I have then displayed the contents of the database as a table.
+            </p>
+        </div>
+
+
+
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week7/experiment1.htm" target="_blank">experiment1.htm</a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week7/server.js" target="_blank">server.js</a><br />
+
+        <h2>References</h2>
+        <a href="https://www.youtube.com/user/jannunzi" target="_blank">Professor Jose's Lectures</a> </br>
+        <hr />
+
+
+
+
+
+
+</body>
+</html>
