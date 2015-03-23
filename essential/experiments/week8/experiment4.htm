@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Logout</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+    <script src="javascript/app.js"></script>
+    <script src="javascript/services.js"></script>
+    <script src="javascript/controller.js"></script>
+</head>
+
+<body style="background-color: peachpuff">
+
+
+    <h1 style="color:palevioletred"> Logout</h1>
+    <fieldset>
+        <h3>About the Experiment</h3>
+        <p>This experiment is an extension of the previous experiment where I have added a logout functionality for a user to logout. <br />
+        <p>
+            To do this, the app is routed to the Home page if the user is currently logged in. I have added another Nav Controller for this purpose.
+            <br />
+            For example, if you log in with username: bob and password: bob above, when you click Logout, it is redirected to the Home page and when Login is clicked, the previous session is terminated to allow a new user to login.
+        </p>
+    </fieldset>
+    <div class="container-fluid" style="border:2px solid; width:600px; height:300px; border-radius:30px">
+        <a href="http://nodejs-soumyaramesh.rhcloud.com/week8-exp4.html"> <h4>Click Here to see the Output</h4></a>  </br></br>
+        <img src="../images/week8-exp4.jpg" alt="exp4 Output">
+    </div>
+    
+    <br />
+
+    <h3>Code Snippet:</h3>
+
+    <pre style="background-color:palegoldenrod">
+        
+    <code>
+
+<strong>server.js</strong>
+app.post("/logout", function (req, res) {
+    req.logout();
+    res.send(200);
+})
+
+<strong>nav.js</strong>
+app.controller("NavCtrl", function ($scope, $http, $location) {
+    $scope.logout = function () {
+        $http.post("/logout")
+        .success(function () {
+            $location.url("/home");
+        });
+    }
+});
+
+<strong>index.html</strong>
+&lt;a href="#logout" ng-click="logout()"&gt;Logout&lt;/a&gt;
+</code>
+        </pre>
+    </p>
+
+
+    <h4>Description</h4>
+    <div style="background-color:beige" class="container-fluid">
+     <p>
+         When the Logout tab is clicked, the logout() method is invoked which is handled by the NavCtrl. It generated a http POST method in the form of $http.post("/logout") and on success, it is redirected to the Home page using $location.url("/home"). <br/>
+         In server.js, when "/logout" is matched, req.logout() is used to logout the current user and terminating his session. This is possible through PassportJS using req.logout().
+     </p>
+
+    </div>
+    <fieldset>
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week8/experiment4.htm" target="_blank">experiment4.htm</a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week8/server.js" target="_blank">server.js</a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week8/login.js" target="_blank">login.js</a> <br />
+        <a href="../../fileview/Default.aspx?~/experiments/week8/nav.js" target="_blank">nav.js</a> <br />
+        <a href="../../fileview/Default.aspx?~/experiments/week8/week8App.js" target="_blank">clientApp.js</a>
+    </fieldset>
+    <fieldset>
+        <h3>References</h3>
+        <nav>
+            <a href="https://www.youtube.com/user/jannunzi" target="_blank">Prof Jose's Lectures</a>
+            <br />
+        </nav>
+    </fieldset>
+    <br />
+
+</body>
+</html>

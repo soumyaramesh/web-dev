@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+    <script src="javascript/app.js"></script>
+    <script src="javascript/services.js"></script>
+    <script src="javascript/controller.js"></script>
+</head>
+
+<body style="background-color: peachpuff">
+    
+    
+        <h1 style="color:palevioletred">Login</h1>
+    <fieldset>
+        <h4>About the Experiment</h4>
+        <p>This experiment is an extension of the previous experiment where I have added a login functionality. The usernames and passwords are stored in the UserModel which is retrieved at the time of login and authenticated using the LocalStrategy. <br />
+        
+        <div class="container-fluid" style="border:2px solid; width:600px; height:400px; border-radius:30px">
+            <img src="../images/week8-exp2-db.jpg" alt="exp1-db Output">
+        </div>
+       <br/> <p> The figure below shows the contents of the UserModel in the database which contains the usernames and passwords.</p> <br/>
+    </fieldset>
+    <div class="container-fluid" style="border:2px solid; width:600px; height:400px; border-radius:30px">
+        <a href="http://nodejs-soumyaramesh.rhcloud.com/week8-exp2.html"> <h4>Click Here to see the Output</h4></a>  </br></br>
+        <img src="../images/week8-exp2.jpg" alt="exp2 Output">
+    </div>
+       
+        <br />
+        
+        <h3>Code Snippet:</h3>
+
+        <pre style="background-color:palegoldenrod">
+        
+        <code>
+<strong>server.js</strong>
+
+app.post("/login", passport.authenticate('local'), function (req, res) {
+    var user = req.user;
+    console.log(user);
+    res.json(user);
+})
+
+passport.use(new LocalStrategy(
+    function (username, password, done) {
+        UserModel.findOne({ username: username, password: password }, function (err, user) {
+        if (user)
+        {
+            return done(null, user);
+        }
+        return done(null, false, { message: 'Unable to login' });
+        });
+    }));
+
+
+<strong>login.js</strong>
+app.controller("LoginCtrl", function ($scope, $http, $location, $rootScope) {
+    $scope.login = function (user) {
+        console.log(user);
+        $http.post("/login", user)
+        .success(function (response) {
+            console.log(response);
+            $rootScope.currentUser = response;
+            $location.url("/profile");
+        });
+        
+    }
+});
+
+        </code>
+        </pre>
+        </p>
+
+
+        <h4>Description</h4>
+        <div style="background-color:beige" class="container-fluid">
+            <p>
+                When the Login tab is clicked in the navigation bar, it is routed to the login.html page. When the username and password is entered and the Login button is clicked, the login(user) function is invoked which is handled by the Login Controller in login.js. A http POST method is generated and on success, the profile page is displayed.
+                <br/>
+                In server.js, /login is matched and before the response is generated, passport.authenticate('local') is used to authenticate the user based on Local Strategy by looking up the local database which will be shown in detail in the next experiment.
+            </p>
+
+        </div>
+        <fieldset>
+            <h3>Source Code</h3>
+            <a href="../../fileview/Default.aspx?~/experiments/week8/experiment2.htm" target="_blank">experiment2.htm</a><br/>
+            <a href="../../fileview/Default.aspx?~/experiments/week8/server.js" target="_blank">server.js</a><br />
+            <a href="../../fileview/Default.aspx?~/experiments/week8/login.js" target="_blank">login.js</a> <br/>
+            <a href="../../fileview/Default.aspx?~/experiments/week8/week8App.js" target="_blank">clientApp.js</a>
+        </fieldset>
+        <fieldset>
+            <h3>References</h3>
+            <nav>
+                <a href="https://www.youtube.com/user/jannunzi" target="_blank">Prof Jose's Lectures</a>
+                <br />
+            </nav>
+        </fieldset>
+        <br />
+
+</body>
+</html>

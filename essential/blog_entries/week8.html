@@ -1,0 +1,31 @@
+﻿<h4>Blog... Experiments with MongoDB </h4>
+<hr />
+<p>
+    This week I did 5 experiments using PassportJS.
+</p>
+<h5> Setting up PassportJS and Navbar </h5>
+<p>
+    In this experiment, I have setup passportJS and built a NavBar. 
+    Passport.js is a flexible authentication middleware that allows users to log in and can work with connect/express.
+    It is flexible as it allows for different authentication strategies (Twitter, Facebook or your own local database and so on) and it allows us to specify any route or output during authentication.
+</p>
+<h5>Login</h5>
+<p>
+    This experiment is an extension of the previous experiment where I have added a login functionality. The usernames and passwords are stored in the UserModel which is retrieved at the time of login and authenticated using the LocalStrategy.
+</p>
+<h5>  Restricting Profile to authenticated users</h5>
+<p>
+    In this experiment, I restricted the Profile page to only authenticated logged-in users. 
+    To do this, I resolve the route only when a check is made to see if the user is currently logged in. 
+</p>
+<h5> Logout</h5>
+<p>
+    This experiment is an extension of the previous experiment where I have added a logout functionality for a user to logout. This was fairly simple using PassportJS.
+</p>
+<h5> Register a new User</h5>
+<p>
+    In this experiment, I have added the functionality to register a new user. When the username and passwords are entered, a check is made to check if the passwords match and a newUser object is created and the information is pushed on to the database. Once the user registers, it will be redirected to the user's profile page.
+</p>
+<h5>Summary</h5>
+<p>This week was very interesting. I decided my project and started working on the design. Meanwhile, I experimented with PassportJS which I will be using in my Project as well. Overall, a productive week.</p>
+<p><a href="http://net4.ccs.neu.edu/home/soumya/experiments/week8/index.htm">View Week8 Experiments</a></p>

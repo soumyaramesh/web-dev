@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="initial-scale=1, minimum-scale=1">
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+    
+    
+    <script src="javascript/exp1.js" type="text/javascript"></script>
+
+    <title> Setting up PassportJS and Navbar </title>
+
+
+
+</head>
+
+<body style="background-color:peachpuff" ng-app="RoutingApp">
+
+    <h1 style="color:rosybrown;text-align:center ">Setting up PassportJS and Navbar</h1> 
+    <br/>   
+
+    <div class="container-fluid" style="border:2px solid; width:800px; height:250px; border-radius:30px">
+        <a href="http://nodejs-soumyaramesh.rhcloud.com/week8-exp1.html"> <h4>Click Here to see the Output</h4></a>  </br></br>
+        <img src="../images/week8-exp1.jpg" alt="exp1 Output">
+    </div>
+    <h4>About the Experiment</h4>
+    <p>
+        This week, I have experimented with PassportJS. Passport.js is a flexible authentication middleware that allows users to log in and can work with connect/express.
+It is flexible as it allows for different authentication strategies (Twitter, Facebook or your own local database and so on) and it allows us to specify any route or output during authentication.
+The Local Strategy allows us to authenticate users by looking up their data in the app's database<br/>
+        In this experiment, I have setup passportJS and built a NavBar. The functionality of the NavBar can be explored in the future experiments.        
+    </p>
+
+<div class="container-fluid">
+            <h4>Code Snippet:</h4>
+
+            <pre>
+<h5>server.js</h5>
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(session({secret : 'this is the secret'}));
+app.use(cookieParser());
+
+passport.serializeUser(function (user, done) {
+    done(null, user);
+});
+passport.deserializeUser(function (user, done) {
+    done(null, user);
+});
+
+
+<h5>exp1.html</h5>
+&lt;body ng-app="PassportApp"&gt;
+    &lt;div class="container"&gt;
+        &lt;nav&gt;
+        &lt;a href="#home"&gt;Home&lt;/a&gt; |
+        &lt;a href="#login"&gt;Login&lt;/a&gt; |
+        &lt;a href="#register"&gt;Register&lt;/a&gt; |
+        &lt;a href="#profile"&gt;Profile&lt;/a&gt; |
+        &lt;a href="#logout"&gt;Logout&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;div ng-view&gt;
+&lt;/body&gt;
+   </pre>
+        </div>
+        <div class="container-fluid">
+
+            <h4>Description :</h4>
+            <br />
+            <p>
+                require is used to import the passport framework. Local Strategy allows us to authenticate users by looking up their data in the app's database. <br/>
+                In addition to providing simple cookie parsing functionality, the cookie-parser middleware enables signed cookies which can be referenced by other middleware components, using an optional secret attribute.
+                <br/>
+                The serialize and deserialize functions must be provided to passport for sessions to work.
+                The purpose of the serialize function is to return sufficient identifying information to recover the user account on any subsequent requests. Specifically the the second parameter of the done() method is the information serialized into the session data.
+                The deserialize function that you provide is intended to return the user profile based on the identifying information that was serialized to the session.
+            </p>
+        </div>
+
+
+
+        <h3>Source Code</h3>
+        <a href="../../fileview/Default.aspx?~/experiments/week8/experiment1.htm" target="_blank">experiment1.htm</a><br />
+        <a href="../../fileview/Default.aspx?~/experiments/week8/server.js" target="_blank">server.js</a><br />
+
+        <h2>References</h2>
+        <a href="https://www.youtube.com/user/jannunzi" target="_blank">Professor Jose's Lectures</a> </br>
+        <hr />
+
+
+
+
+
+
+</body>
+</html>

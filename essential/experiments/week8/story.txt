@@ -1,0 +1,7 @@
+﻿whatisnext.htm?whatisnext.txt   What is Next?
+experiment1.htm                 Setting up PassportJS and Navbar
+experiment2.htm					Login
+experiment3.htm					Restricting Profile to authenticated users
+experiment4.htm					Logout
+experiment5.htm					Register
+
