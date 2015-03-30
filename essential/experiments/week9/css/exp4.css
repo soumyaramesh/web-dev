@@ -1,0 +1,16 @@
+﻿#main{
+	height:100px;
+	position:relative;
+	padding-top: 50px;
+}
+
+.tooltip{
+	background-color:blueviolet;
+
+	box-shadow: 0 1px 1px #ccc;
+	border-radius:3px;
+	width: 290px;
+	padding: 10px;
+
+}
+

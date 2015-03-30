@@ -1,0 +1,49 @@
+﻿form{
+	background-color: lightblue;
+	border-radius: 2px;
+	width: 400px;
+	padding: 35px 60px;
+	margin: 50px auto;
+}
+
+form h1{
+	color:#fff;
+	font-size:50px;
+	font-family:'Cookie', cursive;
+}
+
+form ul{
+    list-style:none;
+	color:#fff;
+	font-size:20px;
+	font-weight:bold;
+	text-align: left;
+	margin:20px 0 15px;
+}
+
+form ul li{
+	padding:20px 30px;
+	background-color:#e35885;
+	margin-bottom:8px;
+	box-shadow:0 1px 1px rgba(0,0,0,0.1);
+	cursor:pointer;
+}
+
+form ul li span{
+	float:right;
+}
+
+form ul li.active{
+	background-color:#8ec16d;
+}
+
+div.total{
+    font-size:40px;
+	font-weight:bold;
+	text-align: left;
+	color:#fff;
+}
+
+div.total span{
+	float:right;
+}

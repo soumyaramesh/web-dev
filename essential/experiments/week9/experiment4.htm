@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="initial-scale=1, minimum-scale=1">
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+
+
+    <script src="javascript/exp1.js" type="text/javascript"></script>
+
+    <title> Search Bar </title>
+
+
+
+</head>
+
+<body style="background-color:aliceblue" ng-app="RoutingApp">
+
+    <h1 style="color:rosybrown;text-align:center ">Search Bar</h1>
+    <br />
+
+
+    <h3>About the Experiment</h3>
+    <p>
+        In this experiment, I created a search bar which is used to search the database based on the user's input and display posts which match that particular search query.
+    </p>
+
+    <div class="container-fluid">
+        <h4>Code Snippet:</h4>
+
+        <strong>home.html</strong>
+        <xmp style="background-color:antiquewhite">
+            <input class="form-control" id="searchbox" placeholder="Search" ng-model="searchbox" /> <br />
+            <div ng-repeat="post in posts | orderBy:'-upvotes' |filter:searchbox">
+</xmp>
+
+    </div>
+    <div class="container-fluid">
+
+        <h4>Description :</h4>
+        <br />
+        <p>
+            A new search bar is created which is a form control of input type where the user can enter the search query. This query is binded using ng-model = "searchbox"
+            <br/>
+            I have added a search filter using filter:searchbox which filters the posts based on the search query.
+        </p>
+    </div>
+
+    <h3>Screenshots</h3>
+    <div class="container">
+        <img src="../images/week9-exp4.jpg" alt="exp4 Output">
+    </div>
+
+
+
+
+
+
+    <h3>Source Code</h3>
+    <a href="../../fileview/Default.aspx?~/experiments/week9/experiment4.htm" target="_blank">experiment4.htm</a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/week9/home.html" target="_blank">home.html</a><br />
+
+    <a href="../../fileview/Default.aspx?~/experiments/week9/server.js" target="_blank">server.js</a><br />
+
+    <h2>References</h2>
+    <a href="https://www.youtube.com/user/jannunzi" target="_blank">Professor Jose's Lectures</a> </br>
+    <a href="https://docs.angularjs.org/tutorial/step_03" target="_blank">Angular Docs</a> </br>
+       <hr />
+
+
+
+
+
+
+</body>
+</html>

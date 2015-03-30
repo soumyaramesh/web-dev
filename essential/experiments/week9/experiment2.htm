@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="initial-scale=1, minimum-scale=1">
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+
+
+    <script src="javascript/exp1.js" type="text/javascript"></script>
+
+    <title> Setting up the Navbar </title>
+
+
+
+</head>
+
+<body style="background-color:aliceblue" ng-app="RoutingApp">
+
+    <h1 style="color:rosybrown;text-align:center ">Setting up the Navigation Menu</h1>
+    <br />
+
+
+    <h4>About the Experiment</h4>
+    <p>
+        In this experiment, I setup the navigation menu functionality which allows a user to register, login, logout and view the home page.
+        <br/> The usernames and passwords are retreived from the database created earlier. I used passport for authentication. When the user logs in, he can view his profile which is restricted based on whether he is logged in or not.
+        When a user registers, his details are entered into the user database as created earlier.
+    </p>
+
+    <div class="container-fluid">
+        <h4>Code Snippet:</h4>
+
+        <pre style="font-size:16px">
+<strong>server.js</strong>
+
+Register
+app.post("/register", function (req, res) {
+    var newUser = new UserModel(req.body);
+    newUser.roles = ['non-admin'];
+    newUser.save(function (err, user) {
+        req.login(user, function (err) {
+            if (err) {
+                return next(err);}
+                res.json(user);
+            
+        });
+    });
+});
+
+Login
+app.post("/login", passport.authenticate('local'), function (req, res) {
+    var user = req.user;
+    console.log(user);
+    res.json(user);
+})
+passport.use(new LocalStrategy(
+    function (username, password, done) {
+        UserModel.findOne({ username: username, password: password }, function (err, user) {
+        if (user)
+        {
+            return done(null, user);
+        }
+        return done(null, false, { message: 'Unable to login' });
+        });
+    }));
+
+Logout
+app.post("/logout", function (req, res) {
+    req.logout();
+    res.send(200);
+})
+
+   </pre>
+    </div>
+    <div class="container-fluid">
+
+        <h4>Description :</h4>
+        <br />
+        <p>
+            When the Register tab is clicked, the user can fill out the username and password.
+            When the register button is clicked, the register(user) method is invoked which is handled by the RegisterCtrl which generates a http POST method in the form of $http.post("/register") and on success, it is redirected to the user's profile page using $location.url("/profile"). <br />
+            $rootScope provides access over different controllers.
+            <br />
+            In server.js, when "/register" is matched, a new UserModel object is created by parsing the user information from req.body. The new User information is saved in the database. <br />
+            The user is now logged in using req.login() which then redirects him to his profile page
+            When the Login tab is clicked in the navigation bar, it is routed to the login.html page. When the username and password is entered and the Login button is clicked, the login(user) function is invoked which is handled by the Login Controller in login.js. A http POST method is generated and on success, the profile page is displayed.
+            In server.js, /login is matched and before the response is generated, passport.authenticate('local') is used to authenticate the user based on Local Strategy by looking up the local database which will be shown in detail in the next experiment.
+            <br/>
+            When the Logout tab is clicked, the logout() method is invoked which is handled by the NavCtrl. It generated a http POST method in the form of $http.post("/logout") and on success, it is redirected to the Home page using $location.url("/home"). <br />
+            In server.js, when "/logout" is matched, req.logout() is used to logout the current user and terminating his session. This is possible through PassportJS using req.logout().
+            <br/>
+        </p>
+    </div>
+
+    <h3>Screenshots</h3>
+    <div class="container">
+        <img src="../images/week9-register.jpg" alt="exp2 Output">
+    </div>
+    
+    <br />
+    <br />
+    <div class="container">
+        <img src="../images/week9-login.jpg" alt="exp2 Output">
+    </div>
+    <br />
+    <br />
+    <div class="container">
+        <img src="../images/week8-exp3.jpg" alt="exp2 Output">
+    </div>
+    
+
+
+
+    <h3>Source Code</h3>
+    <a href="../../fileview/Default.aspx?~/experiments/week9/experiment2.htm" target="_blank">experiment2.htm</a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/week9/login.js" target="_blank">Login</a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/week9/register.js" target="_blank">Register</a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/week9/nav.js" target="_blank">Logout</a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/week9/server.js" target="_blank">server.js</a><br />
+
+    <h2>References</h2>
+    <a href="https://www.youtube.com/user/jannunzi" target="_blank">Professor Jose's Lectures</a> </br>
+    <hr />
+
+
+
+
+
+
+</body>
+</html>
