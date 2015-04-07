@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="initial-scale=1, minimum-scale=1">
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="javascript/angular.js"></script>
+    <script src="javascript/angular-sanitize.js"></script>
+    <script src="javascript/angular-route.js"></script>
+    <script src="javascript/angular-route.min.js"></script>
+
+
+    <script src="javascript/exp1.js" type="text/javascript"></script>
+
+    <title> Post View </title>
+
+
+
+</head>
+
+<body style="background-color:aliceblue" ng-app="RoutingApp">
+
+    <h1 style="color:rosybrown;text-align:center ">Post View</h1>
+    <br />
+
+
+    <h4>About the Experiment</h4>
+    <p>
+        In this experiment, I setup the Post Details page which displays a post's information such as the post title, author, tag and upvote count. Along with that, I have provided a section for the list of comments for that post and provided a form for a user to enter a new comment.
+
+        <br />
+        A user can post a comment only when he is logged in. The comments can be upvoted and downvoted as well.
+    </p>
+
+    <div class="container-fluid">
+        <h4>Code Snippet:</h4>
+
+        <strong>postinfo.html</strong>
+
+        <xmp>
+            <div>
+                <span class="glyphicon glyphicon-upload"
+                      ng-click="incrementUpvotes(post)"></span>
+                <span class="glyphicon glyphicon-download"
+                      ng-click="decrementUpvotes(post)"></span>
+                {{post.upvotes}}
+
+                <span class="page-header">
+                    {{post.title}}
+                </span>
+            </div>
+            <div>
+                <span style="font-size:12px;">
+                    posted by
+                    <a href="#/rest/user/{{post.author._id}}" ng-click="getUserById(author._id)">
+                        {{post.author.username}}
+                    </a>
+                </span>
+
+                <span style="font-size:12px;">
+                    tag
+                    <a href="#/rest/postinfo/tag/{{post.tag._id}} " ng-click="getTagById(post.tag._id)">
+                        {{post.tag.tag}}
+                    </a>
+                </span>
+            </div>
+            <h2>Comments</h2>
+
+            <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+
+                <span class="glyphicon glyphicon-upload"
+                      ng-click="incrementCommentUpvotes(comment)"></span>
+                <span class="glyphicon glyphicon-download"
+                      ng-click="decrementCommentUpvotes(comment)"></span>
+                {{comment.upvotes}}
+                <span style="font-size:20px; margin-left:10px;">
+                    {{comment.commentbody}}
+                </span>
+                <div>
+                    <a href="#/rest/user/{{comment.author}}" ng-click="getUserById(comment.author)"> {{comment.author}}</a>
+                </div>
+            </div>
+
+            <form>
+                <h3>Add a new comment</h3>
+                <div class="form-group">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Comment"
+                           ng-model="commentbody" />
+                </div>
+                <a href="/rest/post/:postid/comment" class=" btn btn-primary" ng-click="addComment(comment)">Add Comment</a>
+            </form>
+    </div>
+    </xmp>
+
+
+
+<pre style="font-size:16px">
+<strong>postServer.js</strong>
+app.get("/post/:id", function (req, res) {
+        PostModel.findById(req.params.id).populate('author').populate('tag').populate('comments').exec(function (err, post) {
+            res.json(post);
+        });
+    });
+
+<strong>postinfoApp.js</strong>
+    var getPostById = function (id) {
+        {
+            $http.get('/post/' + id)
+                .success(function (response) {
+                    console.log(response);
+                    $scope.post = response;
+                });
+        }
+    };
+   </pre>
+    </div>
+
+    </div>
+    <div class="container-fluid">
+
+        <h4>Description :</h4>
+        <br />
+        <p>
+            PostModel.findById is used to retrieve a post with a given id from the database when a http get method is generated.
+            <br />
+            For each post in posts, order by upvotes is used to sort the posts based on their upvotes.
+            The post titles are displayed along with the upvotes, the author of the post, the tag of the post and the comments.
+            <br/>
+            In postinfoApp.js, getPostsById is a function that takes the post id and retrieves the list of posts for that postid.
+            
+            
+
+        </p>
+    </div>
+
+    <h3>Screenshots</h3>
+    <div class="container">
+        <img src="../images/week10-postview.jpg" alt="exp3 Output">
+    </div>
+
+
+
+
+
+
+    <h3>Source Code</h3>
+    <a href="../../fileview/Default.aspx?~/experiments/week10/experiment3.htm" target="_blank">experiment3.htm</a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/week10/views/postinfo/postinfo.html" target="_blank">postinfo.html</a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/week10/views/postinfo/postinfoApp.js" target="_blank">postinfoApp.js</a><br />
+    <a href="../../fileview/Default.aspx?~/experiments/week10/models/postServer.js" target="_blank">postServer.js</a><br />
+
+    <h2>References</h2>
+    <a href="https://www.youtube.com/user/jannunzi" target="_blank">Professor Jose's Lectures</a> </br>
+    <hr />
+
+
+
+
+
+
+</body>
+</html>

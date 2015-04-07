@@ -1,0 +1,48 @@
+﻿<div ng-init="intial()">
+    <h1>Userinfo</h1>
+
+    <strong>Username: {{user.username}} </strong>
+    
+    <h4>Posts:</h4>
+    <div ng-repeat="post in userposts ">
+        <div>
+            <span class="glyphicon glyphicon-upload"
+                  ng-click="incrementUpvotes(post)"></span>
+            <span class="glyphicon glyphicon-download"
+                  ng-click="decrementUpvotes(post)"></span>
+            {{post.upvotes}}
+
+            <span style="font-size:20px; margin-left:10px;">
+                <a ng-show="!isUrl(post.content)" href="#/rest/postinfo/{{post._id}}">
+                    {{post.title}}
+                </a>
+
+                <a ng-show="isUrl(post.content)" href="{{post.content}}">
+                    {{post.title}}
+                </a>
+            </span>
+        </div>
+        <div>
+
+            <span style="font-size:12px;">
+                tag
+                <a href="#/rest/postinfo/tag/{{post.tag._id}} " ng-click="getTagById(post.tag._id)">
+                    {{post.tag.tag}}
+                </a>
+            </span>
+        </div>
+    </div>
+    
+
+    <div class="container" >
+        <h3>Followers</h3>
+        <div ng-repeat="follower in user.following">
+            <a href="#/rest/user/{{follower._id}}" ng-click="getUserById(follower._id)">
+                {{follower.username}}
+            </a>
+        </div>
+    </div>
+   
+</div>
+    
+

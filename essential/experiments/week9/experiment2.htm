@@ -31,7 +31,7 @@
     <h4>About the Experiment</h4>
     <p>
         In this experiment, I setup the navigation menu functionality which allows a user to register, login, logout and view the home page.
-        <br/> The usernames and passwords are retreived from the database created earlier. I used passport for authentication. When the user logs in, he can view his profile which is restricted based on whether he is logged in or not.
+        <br /> The usernames and passwords are retreived from the database created earlier. I used passport for authentication. When the user logs in, he can view his profile which is restricted based on whether he is logged in or not.
         When a user registers, his details are entered into the user database as created earlier.
     </p>
 
@@ -40,7 +40,6 @@
 
         <pre style="font-size:16px">
 <strong>server.js</strong>
-
 Register
 app.post("/register", function (req, res) {
     var newUser = new UserModel(req.body);
@@ -54,7 +53,6 @@ app.post("/register", function (req, res) {
         });
     });
 });
-
 Login
 app.post("/login", passport.authenticate('local'), function (req, res) {
     var user = req.user;
@@ -71,13 +69,11 @@ passport.use(new LocalStrategy(
         return done(null, false, { message: 'Unable to login' });
         });
     }));
-
 Logout
 app.post("/logout", function (req, res) {
     req.logout();
     res.send(200);
 })
-
    </pre>
     </div>
     <div class="container-fluid">
@@ -93,10 +89,10 @@ app.post("/logout", function (req, res) {
             The user is now logged in using req.login() which then redirects him to his profile page
             When the Login tab is clicked in the navigation bar, it is routed to the login.html page. When the username and password is entered and the Login button is clicked, the login(user) function is invoked which is handled by the Login Controller in login.js. A http POST method is generated and on success, the profile page is displayed.
             In server.js, /login is matched and before the response is generated, passport.authenticate('local') is used to authenticate the user based on Local Strategy by looking up the local database which will be shown in detail in the next experiment.
-            <br/>
+            <br />
             When the Logout tab is clicked, the logout() method is invoked which is handled by the NavCtrl. It generated a http POST method in the form of $http.post("/logout") and on success, it is redirected to the Home page using $location.url("/home"). <br />
             In server.js, when "/logout" is matched, req.logout() is used to logout the current user and terminating his session. This is possible through PassportJS using req.logout().
-            <br/>
+            <br />
         </p>
     </div>
 
@@ -104,7 +100,7 @@ app.post("/logout", function (req, res) {
     <div class="container">
         <img src="../images/week9-register.jpg" alt="exp2 Output">
     </div>
-    
+
     <br />
     <br />
     <div class="container">
@@ -115,7 +111,7 @@ app.post("/logout", function (req, res) {
     <div class="container">
         <img src="../images/week8-exp3.jpg" alt="exp2 Output">
     </div>
-    
+
 
 
 

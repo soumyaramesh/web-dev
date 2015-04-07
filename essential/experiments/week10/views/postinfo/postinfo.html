@@ -1,0 +1,56 @@
+﻿<div ng-init="initial()">
+    {{post}}
+    <div>
+        <span class="glyphicon glyphicon-upload"
+              ng-click="incrementUpvotes(post)"></span>
+        <span class="glyphicon glyphicon-download"
+              ng-click="decrementUpvotes(post)"></span>
+        {{post.upvotes}}
+
+        <span class="page-header">
+                {{post.title}}
+        </span>
+    </div>
+    <div>
+        <span style="font-size:12px;">
+            posted by
+            <a href="#/rest/user/{{post.author._id}}" ng-click="getUserById(author._id)">
+                {{post.author.username}}
+            </a>
+        </span>
+
+        <span style="font-size:12px;">
+            tag
+            <a href="#/rest/postinfo/tag/{{post.tag._id}} " ng-click="getTagById(post.tag._id)">
+                {{post.tag.tag}}
+            </a>
+        </span>
+    </div>
+    <h2>Comments</h2>
+  
+    <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+        <span class="glyphicon glyphicon-upload"
+              ng-click="incrementCommentUpvotes(comment)"></span>
+        <span class="glyphicon glyphicon-download"
+              ng-click="decrementCommentUpvotes(comment)"></span>
+        {{comment.upvotes}} 
+        <span style="font-size:20px; margin-left:10px;">
+            {{comment.commentbody}}
+        </span>
+        <div>
+            <a>author:{{comment.author}}</a>
+        </div>
+    </div>
+    
+    <form>
+        <h3>Add a new comment</h3>
+        <div class="form-group">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Comment"
+                   ng-model="commentbody"/>
+        </div>
+        <a href="/rest/post/:postid/comment" class=" btn btn-primary" ng-click="addComment(comment)">Add Comment</a>
+    </form>
+
+</div>
