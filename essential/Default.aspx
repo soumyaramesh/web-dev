@@ -14,7 +14,7 @@
 
 <title>My Home Page</title>
     
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
 
    nav {
@@ -23,9 +23,7 @@
     
 }
 
-   li:hover a {
-	background: #FF9966;
-}
+   
 
 /*Style for dropdown links*/
 
@@ -136,11 +134,8 @@ input[type=checkbox]{
 input[type=checkbox]:checked ~ #menu{
     display: block;
 }
-  
-</style>
 
-<style type="text/css" media="screen">
-    @media screen and (max-width : 760px){
+@media only screen and (max-width : 760px){
 	/*Make dropdown links appear inline*/
 	ul {
 		position: static;
@@ -159,18 +154,15 @@ input[type=checkbox]:checked ~ #menu{
 		display:block;
 	}
 }
+  
+</style>
 
-    html {
-	font-size: 100%;
-	height: auto !important;
-	height: 100%;
-	-webkit-text-size-adjust: 100%;
-	  -ms-text-size-adjust: 100%;
-}
+<style type="text/css" media="screen">
+    
 
-    .show-menu {
-		display:block;
-	}
+    
+
+    
 
     body {
         width:100%;
