@@ -1,12 +1,8 @@
 ﻿<! DOCTYPE html>
 <html lang="en">
 <head>
-    <title>AngularJS Login</title>
-    
-    <script src="javascript/2.js"></script>
-    <script src="javascript/NavController.js"></script>
-    <script src="javascript/UserService.js"></script>
-    <script src="javascript/ProfileController.js"></script>
+    <title>AngularJS Forms</title>
+   
 
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -16,39 +12,21 @@
     <script src="javascript/angular-route.min.js"></script>
 
 </head>
-<body ng-app="AngularApp">
+<body>
 
     <div class="container">
 
-        <!-- Fixed navbar -->
-        <nav ng-controller="NavController" class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-               
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a ng-show="currentUser" href="#profile_static">Profile</a></li>
-                    </ul>
-
-
-                    <form ng-show="!currentUser" class="navbar-form navbar-right">
-                        <div class="form-group">
-                            <input ng-model="username" type="text" placeholder="Username" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input ng-model="password" type="password" placeholder="Password" class="form-control">
-                        </div>
-                        <button ng-show="!currentUser" ng-click="login()" type="submit" class="btn btn-success">Sign in</button>
-                    </form>
-                    <form ng-show="currentUser" class="navbar-form navbar-right">
-                        <label>Welcome {{currentUser.username}}</label>
-                        <button ng-show="currentUser" ng-click="logout(currentUser.username)" type="submit" class="btn btn-danger">Logout</button>
-                    </form>
-                </div><!--/.nav-collapse -->
-            </div>
-        </nav>
-        <!-- Fixed navbar ends-->
+        <h1 style="color:palevioletred"> AngularJS Forms</h1>
+        <fieldset>
+            <h3>About the Experiment</h3>
+            <p>
+                In tis experiment, I have demonstrated a sample form using AngularJS. 
+                <br/>
+                An AngularJS form is a collection of input controls for the purpose of grouping related controls together.
+                Form and controls provide validation services for the user to be notified of invalid input before submitting a form. This provides a better user experience than server-side validation alone because the user gets instant feedback on how to correct the error.
+            </p>
+        </fieldset>
+        
 
 
         <div ng-view>
@@ -56,111 +34,114 @@
 
         <hr />
         <div>
-            <h1>Login using AngularJS</h1>
+            
 
-            <p>
-                Implemented basic login and logout using Factory and controllers in Angular JS. <br />
-                If your current in Profile and you logout. You will be redirected to Home page using $location.path<br />
-                Predefined credentails are
-            </p>
-            <div class="row">
-                <div class="col-md-1">
-                    <table class="table table-condensed">
-                        <thead>
-                            <tr>
-                                <td>Username</td>
-                                <td>Password</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>mit</td><td>mit</td></tr>
-                            <tr><td>admin</td><td>admin</td></tr>
-                        </tbody>
-                    </table>
+            <div ng-app="myApp" ng-controller="FormController">
+                <form>
+                    First Name:<br>
+                    <input type="text" ng-model="person.firstName"><br>
+                    Last Name:<br>
+                    <input type="text" ng-model="person.lastName"><br />
+                    Email:<br>
+                    <input type="email" ng-model="person.email"><br />
+                    <br><br>
+                    <button ng-click="reset()">RESET</button>
+                </form>
+                <div class="container-fluid" style="background-color:antiquewhite">
+                    <h4>Form JSON:</h4>
+                    {{person}}
+                    <h4> Form Content: </h4>
+                    First Name: {{person.firstName}}<br />
+                    Last Name: {{person.lastName}}<br />
+                    Email: {{person.email}}<br />
                 </div>
             </div>
 
-
-            <b>Code Snippets</b><br /><br />
-            <i>NavController.js:</i>
-            <pre class="prettyprint">
-                app.controller('NavController', ['$scope','UserService', function ($scope, UserService) {
-    
-    
-                    $scope.login = function () {
-                        var username = $scope.username;
-                        var password = $scope.password;
-                        var user = UserService.login(username, password);
-                        $scope.currentUser = user;
-                    }
-                    $scope.logout = function () {
-                        UserService.logout();
-                        $scope.currentUser = null;
-                        
-                        /*Redirect to home*/
-                        if ($location.path() == '/profile' || $location.path() == '/profile_static') {
-                            $location.path('/home');
-                        }
-                    }
-                }]);
-            </pre>
-            <i>UserService.js</i>
-            <pre class="prettyprint">
-                app.factory('UserService', function () {
-                    var users = [
-                        { username: 'mit', password: 'mit' },
-                        { username: 'admin', password: 'admin' }];
-                    var currentUser = null;
-                    var login = function (username, password) {
-                        for (var i = 0; i < users.length; i++) {
-                            if (users[i].username == username) {
-                                if (users[i].password == password) {
-                                    currentUser = users[i];
-                                    return users[i];
-                                } else {
-                                    return null;
-                                }
-                            }
-                        }
-                        return null;
-                    }
-                    var getCurrentUser = function(){
-                        return currentUser;
-                    }
-                    var logout = function (username) {
-                        currentUser = null;
-                    }
-                    return {
-                        /*Expose the function*/
-                        login: login,
-                        getCurrentUser: getCurrentUser,
-                        logout: logout
+            <script>
+                var app = angular.module('myApp', []);
+                app.controller('FormController', function ($scope) {
+                    $scope.content = {firstName:"",lastName:"",email:""};
+                    $scope.reset = function () {
+                        $scope.person = angular.copy($scope.content);
                     };
+                    $scope.reset();
                 });
-            </pre>
+            </script>
 
 
+            <h3>Code Snippet</h3>
+            <strong> angularApp Script</strong>
+<pre>
+            var app = angular.module('myApp', []);
+            app.controller('FormController', function ($scope) {
+            $scope.content = {firstName:"",lastName:"",email:""};
+            $scope.reset = function () {
+            $scope.person = angular.copy($scope.content);
+            };
+            $scope.reset();
+            });
+</pre>
+            <strong>html file</strong>
+            <xmp>
+                <div ng-app="myApp" ng-controller="FormController">
+                    <form>
+                        First Name:<br>
+                        <input type="text" ng-model="person.firstName"><br>
+                        Last Name:<br>
+                        <input type="text" ng-model="person.lastName"><br />
+                        Email:<br>
+                        <input type="email" ng-model="person.email"><br />
+                        <br><br>
+                        <button ng-click="reset()">RESET</button>
+                    </form>
+                    <div class="container-fluid" style="background-color:antiquewhite">
+                        <h4>Form JSON:</h4>
+                        {{person}}
+                        <h4> Form Content: </h4>
+                        First Name: {{person.firstName}}<br />
+                        Last Name: {{person.lastName}}<br />
+                        Email: {{person.email}}<br />
+                    </div>
+                </div>
+            </xmp>
+            
+     
+
+        <div>
+            <b>Description</b>
+            <p>
+                ng-app directive is used to define the AngularJS application.
+
+                The ng-controller directive defines the application controller which is the FormController in this example.
+
+                The ng-model directive binds the input elements to the person object in the model.
+
+                The FormController controller initializes the values for the person object and defines the reset() method.
+
+                The reset() method sets the person object values equal to the content object values.
+
+                The ng-click directive invokes the reset() method when the reset button is clicked.
+            </p>
+        </div>
         </div>
         <div>
-            <b>Source Code:</b>
-            <a href="http://net4.ccs.neu.edu/home/mit09/fileview/Default.aspx?~/experiments/angular_p/2.html" target="_blank">HTML</a>
-            <b>|</b>
-            <a href="http://net4.ccs.neu.edu/home/mit09/fileview/Default.aspx?~/experiments/angular_p/scripts/2.js" target="_blank"> Routing</a>
-            <b>|</b>
-            <a href="http://net4.ccs.neu.edu/home/mit09/fileview/Default.aspx?~/experiments/angular_p/scripts/NavController.js" target="_blank"> Controller</a>
-            <b>|</b>
-            <a href="http://net4.ccs.neu.edu/home/mit09/fileview/Default.aspx?~/experiments/angular_p/scripts/UserService.js" target="_blank"> Factory</a>
-            <b>|</b>
-            <a href="http://net4.ccs.neu.edu/home/mit09/fileview/Default.aspx?~/css/angular_app/1.css" target="_blank"> CSS</a>
-            <br />
-            <br />
-            <b>References:</b>
-            <ol>
-                <li><a href="https://plus.google.com/u/0/events/clvi3kt97lvt3dhkhddvrm4nhqg" target="_blank">Prof. Jose lecture</a></li>
-                <li><a href="https://code.google.com/p/google-code-prettify/" target="_blank"> Display code snippet using google-code-prettify</a></li>
-                <li><a href="http://getbootstrap.com/getting-started/" target="_blank"> Bootstrap template</a></li>
+            <fieldset>
+                <h3>Source Code</h3>
+                <a href="../../fileview/Default.aspx?~/experiments/week5/experiment5.html" target="_blank">experiment5.html</a>
+                <br />
+                <a href="../../fileview/Default.aspx?~/experiments/week5/javascript/app.js" target="_blank">app.js</a>
+                <br />
+                <a href="../../fileview/Default.aspx?~/experiments/week5/javascript/controller.js" target="_blank">controller.js</a>
+                
+            </fieldset>
 
-            </ol>
+            <h3>References:</h3>
+                <br />
+                <a href="http://www.w3schools.com/" target="_blank">w3schools</a>
+            <br/>
+            <a href="https://docs.angularjs.org/guide/forms" target="_blank">Angular Docs</a>
+
+
         </div>
     </div>
 
