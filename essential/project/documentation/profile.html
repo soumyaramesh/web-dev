@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+
+    <link href="http://fonts.googleapis.com/css?family=Arizonia" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Bad+Script|Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400italic|Crimson+Text:600italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Serif|Libre+Baskerville:400,400italic|Old+Standard+TT' rel='stylesheet' type='text/css'>
+
+    <style>
+        h2, h3 {
+            font-family: 'Lobster',cursive;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+
+        section {
+            font-family: 'Libre Baskerville', cursive;
+        }
+
+        #postit {
+            font-family: Arizonia;
+            font-size: 200%;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="page-header" id="postit" style="background-color: #D1D1BA">
+        <h1 style="padding-top:30px;text-align:center;font-size:200%;">PostIt!</h1>
+    </div>
+    <h2 style="text-align:center">Profile Page</h2><br />
+    <br />
+    <section>
+
+        The Profile Page is displayed after an authenticated user is logged in. I have restricted the Profile page only to authenticated logged-in users.
+    To do this, the route is resolved only after a check is made to see if the user is currently logged in. 
+         For example, if you try to access the Profile url without logging in, an alert will be displayed and automatically redirect you to the Login page.
+        The profile page contains the user's information like the user's account information,  posts and the list of users that the user is following.
+        The navigation menu now shows the Profile tab, a button to add a new Post and a Logout button.
+        <br/>Here's a screenshot of the Profile page: <br /> <br />
+
+        <div class="container" style="border:double">
+            <img src="images/profile.jpg" alt="view_page">
+        </div>
+    </section>
+    <br /><br />
+
+
+    <section>
+        You can navigate to the Profile Page of my project by clicking on
+        <a href="http://project-soumyaramesh.rhcloud.com/#/profile" target="_blank">Profile.</a>
+        This will automatically redirect you to the login page.
+        <br />
+        
+    </section>
+    <section>
+        Here's the link to related experiments:
+        <a href="http://net4.ccs.neu.edu/home/soumya/experiments/week8/index.htm" target="_blank">Related experiments</a>
+    </section>
+
+</body>
+</html>

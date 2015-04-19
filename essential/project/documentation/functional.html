@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+
+    <link href="http://fonts.googleapis.com/css?family=Arizonia" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Bad+Script|Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400italic|Crimson+Text:600italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Serif|Libre+Baskerville:400,400italic|Old+Standard+TT' rel='stylesheet' type='text/css'>
+
+    <style>
+        h2, h3 {
+            font-family: 'Lobster',cursive;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+
+        section {
+            font-family: 'Libre Baskerville', cursive;
+        }
+
+        #postit {
+            font-family: Arizonia;
+            font-size: 200%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="page-header" id="postit" style="background-color: #D1D1BA">
+        <h1 style="padding-top:30px;text-align:center;font-size:200%;">PostIt!</h1>
+    </div>
+    <h2>Functional Flow</h2>
+    <br />
+    <section>
+
+        The diagram below represents the different functions that are available in the application along with their flow of operation.
+        The user can login or register by choosing one of the options available on the home page.
+         After login, a check is made to verify the authentication details and on success, the page is routed to the Profile view of the user. 
+        If the login is unsuccessful, the login page is displayed again. 
+        Once the user is authenticated, the user may Add a post, comment, upvote, downvote, follow a user, unfollow a user and logout.
+
+        <img src="images/functional.jpeg" alt="view_page">
+
+    </section>
+    <div>
+        Here's the link to related experiments:
+        <a href="http://net4.ccs.neu.edu/home/soumya/experiments/week9/index.htm" target="_blank">Related experiments</a>
+    </div>
+
+</body>
+</html>

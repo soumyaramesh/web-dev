@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+
+    <link href="http://fonts.googleapis.com/css?family=Arizonia" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Bad+Script|Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400italic|Crimson+Text:600italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Serif|Libre+Baskerville:400,400italic|Old+Standard+TT' rel='stylesheet' type='text/css'>
+
+    <style>
+        h2, h3 {
+            font-family: 'Lobster',cursive;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+
+        section {
+            font-family: 'Libre Baskerville', cursive;
+        }
+
+        #postit {
+            font-family: Arizonia;
+            font-size: 200%;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="page-header" id="postit" style="background-color: #D1D1BA">
+        <h1 style="padding-top:30px;text-align:center;font-size:200%;">PostIt!</h1>
+    </div>
+    <h2 style="text-align:center">User Detail Page</h2><br />
+    <br />
+    <section>
+
+        The Public User Detail Page displays a user's detailed information such as the username, the user's post information including the post title, tag and upvote count and the user's following list. 
+        <br/>
+        When a user is logged in and views another user's page, apart from the above information, a Follow/Unfollow button is displayed based on whether the current user is following the other user or not.
+        When the current user clicks the follow button, the other user is added to the current user's following list. If the unfollow button is clicked, that user is removed from the current user's folowing list.
+        <br />Here's a screenshot of the User Detail Public page: <br /> <br />
+
+        <div class="container" style="border:double">
+            <img src="images/publicuser.jpg" alt="view_page">
+        </div>
+    </section>
+    <section>
+        <br />Here's a screenshot of the User Detail page when a user is logged in. An additional button to follow/unfollow that user is available. <br /> <br />
+
+        <div class="container" style="border:double">
+            <img src="images/follow.jpg" alt="view_page">
+        </div><br/>
+        When the current user is following another user, the unfollow button is displayed to stop following that user.
+        <br/>   <br/>
+        <div class="container" style="border:double">
+            <img src="images/unfollow.jpg" alt="view_page">
+        </div>
+    </section>
+    <br /><br />
+
+
+    <section>
+        You can navigate to one of the User Detail pages of my project by clicking on
+        <a href="http://project-soumyaramesh.rhcloud.com/#/rest/user/5532a1d8f60923078c842a1e" target="_blank">User Detail.</a>
+        <br />
+
+    </section>
+    <section>
+        Here's the link to related experiments:
+        <a href="http://net4.ccs.neu.edu/home/soumya/experiments/week10/index.htm" target="_blank">Related experiments</a>
+    </section>
+
+</body>
+</html>

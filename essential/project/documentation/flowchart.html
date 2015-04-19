@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+
+    <link href="http://fonts.googleapis.com/css?family=Arizonia" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Bad+Script|Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400italic|Crimson+Text:600italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Serif|Libre+Baskerville:400,400italic|Old+Standard+TT' rel='stylesheet' type='text/css'>
+
+    <style>
+        h2, h3 {
+            font-family: 'Lobster',cursive;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+
+        section {
+            font-family: 'Libre Baskerville', cursive;
+        }
+
+        #postit {
+            font-family: Arizonia;
+            font-size: 200%;
+        }
+
+       
+    </style>
+
+</head>
+<body>
+    <div class="page-header" id="postit" style="background-color: #D1D1BA">
+        <h1 style="padding-top:30px;text-align:center;font-size:200%;">PostIt!</h1>
+    </div>
+    <h2>Application Flow</h2>
+    <br/>
+    <section>
+
+        The diagram below represents the different views that are available in the application. 
+        Most views are public except for the Profile View and the New Post view which require a user to be logged in.
+        From the Home Page, a user can navigate to the Login and Register pages using the tabs available in the Navigation menu. 
+        When the author of a post is clicked, the user details view is displayed. If a tag is clicked, all posts belonging to that tag will be displayed.
+        When the post link is clicked, if the content of the post is a direct link, the link opens up in a new page. If the post content is not a link, the Post details view is displayed.
+        When the Comments link is clicked, the Post Details view with the comments will be displayed.
+
+        <img src="images/views.jpeg" alt="view_page">
+
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+
+    <link href="http://fonts.googleapis.com/css?family=Arizonia" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Bad+Script|Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400italic|Crimson+Text:600italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Serif|Libre+Baskerville:400,400italic|Old+Standard+TT' rel='stylesheet' type='text/css'>
+
+    <style>
+        h2, h3 {
+            font-family: 'Lobster',cursive;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+
+        section {
+            font-family: 'Libre Baskerville', cursive;
+        }
+
+        #postit {
+            font-family: Arizonia;
+            font-size: 200%;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="page-header" id="postit" style="background-color: #D1D1BA">
+        <h1 style="padding-top:30px;text-align:center;font-size:200%;">PostIt!</h1>
+    </div>
+    <h2 style="text-align:center">Register and Login</h2><br/>
+    <h3>Register Page</h3>
+    <br />
+    <section>
+
+        The Register Page contains a form for a new user to sign up. The user can sign up with a username and password.
+        On successful registration, a new user object is created and stored in the database, after which the page will be redirected to the Profile Page.
+        Here's a screenshot of the Registration page: <br /> <br />
+
+        <div class="container" style="border:double">
+            <img src="images/register.jpg" alt="view_page">
+        </div>
+    </section>
+    <br /><br />
+
+    <h3>Login Page</h3>
+    <br />
+    <section>
+
+        The Login Page contains a form for a new user to enter his/her username and password and login. 
+        The usernames and passwords are stored in the UserModel which is retrieved at the time of login and authenticated using the LocalStrategy. 
+        PassportJS is used for this purpose.
+        Here's a screenshot of the Login page: <br /> <br />
+
+        <div class="container" style="border:double">
+            <img src="images/login.jpg" alt="view_page">
+        </div>
+    </section>
+    <br /><br />
+    
+        
+    <section>
+        You can navigate to the Register Page of my project by clicking on 
+        <a href="http://project-soumyaramesh.rhcloud.com/#/register" target="_blank">Register</a>
+        <br/>
+        You can navigate to the Login Page of my project by clicking on
+        <a href="http://project-soumyaramesh.rhcloud.com/#/login" target="_blank">Login</a>
+    </section>
+    <section>
+        Here's the link to related experiments:
+        <a href="http://net4.ccs.neu.edu/home/soumya/experiments/week8/index.htm" target="_blank">Related experiments</a>
+    </section>
+
+</body>
+</html>

@@ -216,7 +216,7 @@ input[type=checkbox]:checked ~ #menu{
     <li><a href="images/autoimage.aspx" target="_blank">Images</a></li>
     <li><a href="blog/" target="_blank">Blog</a></li>
     <li><a href="experiments/" target="_blank">Experiments</a></li>
-    
+    <li><a href="project/" target="_blank">Project</a></li>
 </ul>
     </nav>
        
