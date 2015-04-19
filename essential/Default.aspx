@@ -217,6 +217,7 @@ input[type=checkbox]:checked ~ #menu{
     <li><a href="blog/" target="_blank">Blog</a></li>
     <li><a href="experiments/" target="_blank">Experiments</a></li>
     <li><a href="project/" target="_blank">Project</a></li>
+    <li><a href="https://github.com/soumyaramesh/web-dev-project" target="_blank">Project Git</a></li>
 </ul>
     </nav>
        
